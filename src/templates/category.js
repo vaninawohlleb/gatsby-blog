@@ -44,11 +44,7 @@ export const categoryQuery = graphql`
         slug
         summary
         featuredImage{
-          file {
-            url
-            fileName
-          }
-          resolutions(width: 1600) {
+          resolutions(width: 400) {
           ...GatsbyContentfulResolutions
           }
         }

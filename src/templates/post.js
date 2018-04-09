@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
 const H1BoldStyled = styled.h1`
   @media (max-width: 800px) {
@@ -49,7 +50,7 @@ const AuthorWhite = Author.extend`
   color: white;
   
 ` 
-export default({data}) => {
+const PostPage = ({data}) => {
   const post = data.contentfulPost
   return <div className="post-single">
       {post.featuredImage && <div>
@@ -71,10 +72,18 @@ export default({data}) => {
             </Author>
           ))}
         </Info>}
-      <PostBody dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }} />
+      {post.body &&
+        <PostBody dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }} />
+      }
       <span>{post.slug}</span>
     </div>;
 }
+
+PostPage.propTypes = {
+  data: PropTypes.object,
+}
+
+export default PostPage
 
 // Query Contentful for content type Post
 export const postQuery = graphql`
