@@ -1,7 +1,53 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const path = require('path')
 
- // You can delete this file if you're not using it
+exports.createPages = ({ graphql, boundActionCreators }) => {
+  const { createPage } = boundActionCreators
+  const { createRedirect } = boundActionCreators
+
+  return new Promise((resolve, reject) => {
+    graphql(`
+      {
+        allContentfulPost {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
+        allContentfulCategory {
+          edges {
+            node {
+              slug
+              title
+            }
+          }
+        }
+      }
+    `).then(result => {
+
+      // Contenful Posts
+      result.data.allContentfulPost.edges.map(({ node }) => {
+        createPage({
+          path: `/${node.slug}`,
+          component: path.resolve('src/templates/post.js'),
+          context: {
+            slug: node.slug
+          },
+        })
+      })
+
+      // Contentful Categories
+      result.data.allContentfulCategory.edges.map(({ node }) => {
+        createPage({
+          path: `/${node.slug}`,
+          component: path.resolve('src/templates/category.js'),
+          context: {
+            slug: node.slug
+          },
+        })
+      })
+      resolve()
+    })
+    
+  })
+}
