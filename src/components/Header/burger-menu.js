@@ -35,14 +35,13 @@ class BurgerMenu extends React.Component {
     const categories = this.props.data.allContentfulCategory.edges
     const pages = this.props.data.allContentfulPage.edges
 
-    console.log(categories)
-    console.log(pages)
-    return <div id="outer-container">
+    return <div>
         {typeof window !== 'undefined' && window.location.href && <Menu width={'300px'} isOpen={this.state.menuOpen} noOverlay onStateChange={state => this.handleStatechange(state)} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
           {/* Categories */}
+          <button onClick={() => this.closeMenu()}>Close Menu</button>
           {categories.map(category => (
             <Link key={category.node.id} to={category.node.slug}>
-              <MenuItem onClick={() => this.closeMenu()}>
+              <MenuItem>
                 <h3>{category.node.title}</h3>
               </MenuItem>
             </Link>

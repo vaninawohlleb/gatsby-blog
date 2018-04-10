@@ -1,14 +1,13 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
-import FeaturedPost from '../layouts/posts/featured-post'
-import Post from '../layouts/posts/post-triple-column'
 import styled, { extend } from 'styled-components'
 
-const PostsWrapper = styled.div`
+import FeaturedPost from '../templates/posts/featured-post'
+import Post from '../templates/posts/post'
+import Grid from '../layouts/grid'
 
-`
-const PostsContainer = styled.div`
+const PostsWrapper = styled.div`
 
 `
 
@@ -25,31 +24,12 @@ class IndexPage extends React.Component {
         category.title === 'featured' && node.id === category.posts[0].id
     )
 
-    return (
-      <PostsWrapper>
+    return <PostsWrapper>
         {/* Featured Post */}
-        {featured &&
-          featured[0].node && (
-            <FeaturedPost post={featured[0].node} key={featured[0].node.id} />
-          )}
+        {featured && featured[0].node && <FeaturedPost post={featured[0].node} key={featured[0].node.id} />}
         {/* 6 posts */}
-        <PostsContainer>
-          {edges &&
-            edges
-              .slice(1, 7)
-              .map(({ node }) => <Post post={node} key={node.id} />)}
-        </PostsContainer>
-        {/* Some other shennigans */}
-        lalalallala
-        {/* 3 posts */}
-        <PostsContainer>
-          {edges &&
-            edges
-              .slice(7, 11)
-              .map(({ node }) => <Post post={node} key={node.id} />)}
-        </PostsContainer>
+        <Grid data={edges} isHomePage/>
       </PostsWrapper>
-    )
   }
 }
 
@@ -75,7 +55,7 @@ export const contentQuery = graphql`
               url
               fileName
             }
-            resolutions(width: 400) {
+            resolutions(width: 600) {
             ...GatsbyContentfulResolutions
             }
           }

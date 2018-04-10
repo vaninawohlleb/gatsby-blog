@@ -5,17 +5,20 @@ import Link from 'gatsby-link'
 import H2Styled from '../../components/h2styled'
 import PropTypes from 'prop-types'
 
+const PostWrapper = styled.div`
+  
+`
 const PostBody = styled.div`
 
 `
 const Post = ({ post }) => {
-  return <div className="post-single__triple">
+  return <PostWrapper>
     {post.featuredImage && <Img resolutions={post.featuredImage.resolutions} />}
     <Link to={post.slug}>
       <H2Styled data={post.title.title} />
     </Link>
     <PostBody>{post.summary}</PostBody>
-  </div>
+  </PostWrapper>
 }
 
 Post.propTypes = {
