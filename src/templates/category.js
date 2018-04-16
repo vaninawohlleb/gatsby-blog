@@ -7,17 +7,7 @@ import Post from './posts/post'
 import Grid from '../layouts/grid'
 
 const H1BoldStyled = styled.h1`
-  @media (max-width: 800px) {
-    font-size: 40px;
-    padding: 2.5em 0.7em 0;
-  }
-
-  padding: 1.5em 0.4em 0;
-  max-width: 1024px;
-  text-transform: uppercase;
-  font-size: 70px;
-  color: #004772;
-  margin: 0 auto;
+  text-align: center;
 `
 
 const Category = styled.div`
@@ -26,7 +16,6 @@ const Category = styled.div`
 
 export default({data}) => {
   const category = data.contentfulCategory
-
   return <Category>
     <H1BoldStyled>{category.title}</H1BoldStyled>
     <Grid data={category.posts} isHomePage={false} />
@@ -47,7 +36,7 @@ export const categoryQuery = graphql`
         slug
         summary
         featuredImage{
-          resolutions(width: 400) {
+          resolutions(width: 700) {
           ...GatsbyContentfulResolutions
           }
         }

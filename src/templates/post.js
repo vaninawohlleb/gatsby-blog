@@ -3,80 +3,83 @@ import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
-const H1BoldStyled = styled.h1`
-  @media (max-width: 800px) {
-    font-size: 40px;
-    padding: 2.5em 0.7em 0;
+const SinglePost = styled.div`
+  
+`
+
+const H1 = styled.h1`
+  text-align: center;
+`
+const ImgWrapper = styled.div`
+  text-align: center;
+  > img {
+    max-width: 100%;
+  }
+`
+const PostBody = styled.div`
+  max-width: 1025px;
+  margin: 0 auto;
+  padding: 2rem;
+
+  img {
+    margin-bottom: var(--spacing);
   }
 
-  padding: 1.5em 0.4em 0;
-  max-width: 1024px;
-  text-transform: uppercase;
-  font-size: 70px;
-  color: #004772;
-  margin: 0 auto;
-`;
-const H1White = H1BoldStyled.extend`
-  color: white;
-`
-
-const PostBody = styled.div`
-  max-width: 1024px;
-  margin: 0 auto;
-  padding: 2em;
+  blockquote {
+    font-size: 17px;
+    padding: var(--big-spacing);
+    border: 5px transparent solid;
+    border-image: linear-gradient(
+      to right,
+      #1e2ad2 10%,
+      #ee9ae5 100%,
+      #1e2ad2 10%,
+      #ee9ae5 100%
+    );
+    border-image-slice: 1;
+  }
 `
 const Info = styled.div`
-  max-width: 1024px;
+  max-width: 1025px;
   margin: 0 auto;
+  padding: 2rem;
 `
-const InfoGrey = Info.extend`
-  padding: 2em 4em;
-  background: #82a0a2;
-  margin: -300px auto 0;
-  z-index: 9;
-  min-height: 350px;
-`;
-const Author = styled.a`
+const Meta = styled.div`
   display: block;
+  text-align: center;
+`
+const Author = styled.a`
+  &:after {
+    content: '/';
+    padding: 0 .3rem;
+  }
+`
+const UpdatedAt = styled.span`
 
-  // @media (max-width: 800px) {
-  //   padding: 1.5em;
-  // }
-
-  padding: .5em 2em;
-`;
-const AuthorWhite = Author.extend`
-  color: white;
-  
-` 
+`
 const PostPage = ({data}) => {
   const post = data.contentfulPost
-  return <div className="post-single">
-      {post.featuredImage && <div>
+  const date = moment(`${post.updatedAt}`).format('DD MMMM')
+
+  return <SinglePost>
+      {post.featuredImage && <ImgWrapper>
           <Img resolutions={post.featuredImage.resolutions} />
-          <InfoGrey>
-            <H1White>{post.title.title}</H1White>
-            {post.author && post.author.map(author => (
-                <AuthorWhite key={author.id} href={author.website}>
-                  by {author.name}
-                </AuthorWhite>
-              ))}
-          </InfoGrey>
-        </div>}
-      {!post.featuredImage && <Info>
-          <H1BoldStyled>{post.title.title}</H1BoldStyled>
+        </ImgWrapper>}
+      <Info>
+        <H1>{post.title.title}</H1>
+        <Meta>
           {post.author.map(author => (
             <Author key={author.id} href={author.website}>
               by {author.name}
             </Author>
           ))}
-        </Info>}
-      {post.body &&
-        <PostBody dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }} />
-      }
-      <span>{post.slug}</span>
-    </div>;
+          {post.updatedAt && <UpdatedAt>{date}</UpdatedAt>}
+        </Meta>
+      </Info>
+      {post.body && <PostBody dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }} />}
+    </SinglePost>
 }
 
 PostPage.propTypes = {
@@ -103,7 +106,7 @@ export const postQuery = graphql`
           url
           fileName
         }
-        resolutions(width: 1600) {
+        resolutions(width: 1200) {
          ...GatsbyContentfulResolutions
         }
       }
@@ -112,6 +115,7 @@ export const postQuery = graphql`
         name
         website
       }
+      updatedAt
     }
   }
 `

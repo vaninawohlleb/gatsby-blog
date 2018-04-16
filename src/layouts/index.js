@@ -1,19 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
+import { injectGlobal } from 'styled-components'
+import '../assets/fa/css/fontawesome.min.css'
+import '../assets/fa/css/fa-brands.min.css'
+
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import { injectGlobal } from 'styled-components'
 
+// TODO: Transfer this and the rest of the reset to typography.js (yikes)
 injectGlobal`
 /* This is global styling,  do not add specific styles here */
-html {
-    font-family: sans-serif;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-  }
+
   body {
-    margin: 0;
+    font-family: Work Sans, sans-serif;
+    font-weight: 400;
+    word-wrap: break-word;
+    font-kerning: normal;
+    -moz-font-feature-settings: "kern", "liga", "clig", "calt";
+    -ms-font-feature-settings: "kern", "liga", "clig", "calt";
+    -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
+    font-feature-settings: "kern", "liga", "clig", "calt";
   }
   article,
   aside,
@@ -46,14 +53,7 @@ html {
   template {
     display: none;
   }
-  a {
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-  }
-  a:active,
-  a:hover {
-    outline-width: 0;
-  }
+
   abbr[title] {
     border-bottom: none;
     text-decoration: underline;
@@ -67,10 +67,7 @@ html {
   dfn {
     font-style: italic;
   }
-  h1 {
-    font-size: 2em;
-    margin: .67em 0;
-  }
+ 
   mark {
     background-color: #ff0;
     color: #000;
@@ -191,457 +188,24 @@ html {
     -webkit-appearance: button;
     font: inherit;
   }
-  html {
-    font: 112.5%/1.45em georgia, serif;
-    box-sizing: border-box;
-    overflow-y: scroll;
-  }
-  * {
-    box-sizing: inherit;
-  }
-  *:before {
-    box-sizing: inherit;
-  }
-  *:after {
-    box-sizing: inherit;
-  }
-  body {
-    color: hsla(0, 0%, 0%, 0.8);
-    font-family: georgia, serif;
-    font-weight: normal;
-    word-wrap: break-word;
-    font-kerning: normal;
-    -moz-font-feature-settings: "kern", "liga", "clig", "calt";
-    -ms-font-feature-settings: "kern", "liga", "clig", "calt";
-    -webkit-font-feature-settings: "kern", "liga", "clig", "calt";
-    font-feature-settings: "kern", "liga", "clig", "calt";
-  }
-  img {
-    max-width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  h1 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 2.25rem;
-    line-height: 1.1;
-  }
-  h2 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 1.62671rem;
-    line-height: 1.1;
-  }
-  h3 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 1.38316rem;
-    line-height: 1.1;
-  }
-  h4 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 1rem;
-    line-height: 1.1;
-  }
-  h5 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 0.85028rem;
-    line-height: 1.1;
-  }
-  h6 {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    color: inherit;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-    font-weight: bold;
-    text-rendering: optimizeLegibility;
-    font-size: 0.78405rem;
-    line-height: 1.1;
-  }
-  hgroup {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  ul {
-    margin-left: 1.45rem;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    list-style-position: outside;
-    list-style-image: none;
-  }
-  ol {
-    margin-left: 1.45rem;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    list-style-position: outside;
-    list-style-image: none;
-  }
-  dl {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  dd {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  p {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  figure {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  pre {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    font-size: 0.85rem;
-    line-height: 1.42;
-    background: hsla(0, 0%, 0%, 0.04);
-    border-radius: 3px;
-    overflow: auto;
-    word-wrap: normal;
-    padding: 1.45rem;
-  }
-  table {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-    font-size: 1rem;
-    line-height: 1.45rem;
-    border-collapse: collapse;
-    width: 100%;
-  }
-  fieldset {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  blockquote {
-    margin-left: 1.45rem;
-    margin-right: 1.45rem;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  form {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  noscript {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  iframe {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  hr {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: calc(1.45rem - 1px);
-    background: hsla(0, 0%, 0%, 0.2);
-    border: none;
-    height: 1px;
-  }
-  address {
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 0;
-    margin-bottom: 1.45rem;
-  }
-  b {
-    font-weight: bold;
-  }
-  strong {
-    font-weight: bold;
-  }
-  dt {
-    font-weight: bold;
-  }
-  th {
-    font-weight: bold;
-  }
-  li {
-    margin-bottom: calc(1.45rem / 2);
-  }
-  ol li {
-    padding-left: 0;
-  }
-  ul li {
-    padding-left: 0;
-  }
-  li > ol {
-    margin-left: 1.45rem;
-    margin-bottom: calc(1.45rem / 2);
-    margin-top: calc(1.45rem / 2);
-  }
-  li > ul {
-    margin-left: 1.45rem;
-    margin-bottom: calc(1.45rem / 2);
-    margin-top: calc(1.45rem / 2);
-  }
-  blockquote *:last-child {
-    margin-bottom: 0;
-  }
-  li *:last-child {
-    margin-bottom: 0;
-  }
-  p *:last-child {
-    margin-bottom: 0;
-  }
-  li > p {
-    margin-bottom: calc(1.45rem / 2);
-  }
-  code {
-    font-size: 0.85rem;
-    line-height: 1.45rem;
-  }
-  kbd {
-    font-size: 0.85rem;
-    line-height: 1.45rem;
-  }
-  samp {
-    font-size: 0.85rem;
-    line-height: 1.45rem;
-  }
-  abbr {
-    border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-    cursor: help;
-  }
-  acronym {
-    border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-    cursor: help;
-  }
-  abbr[title] {
-    border-bottom: 1px dotted hsla(0, 0%, 0%, 0.5);
-    cursor: help;
-    text-decoration: none;
-  }
-  thead {
-    text-align: left;
-  }
 
-
-  tt,
-  code {
-    background-color: hsla(0, 0%, 0%, 0.04);
-    border-radius: 3px;
-    font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
-      "Liberation Mono", Menlo, Courier, monospace;
-    padding: 0;
-    padding-top: 0.2em;
-    padding-bottom: 0.2em;
-  }
-  pre code {
-    background: none;
-    line-height: 1.42;
-  }
-  code:before,
-  code:after,
-  tt:before,
-  tt:after {
-    letter-spacing: -0.2em;
-    content: " ";
-  }
-  pre code:before,
-  pre code:after,
-  pre tt:before,
-  pre tt:after {
-    content: "";
-  }
-  .gatsby-image-wrapper {
-    max-width: 100%;
-    max-height: 400px;
-  }
-  .bm-burger-button {
-    width: 30px;
-    height: 30px;
-  }
-  .bm-burger-button > button{
-    max-width: 30px;
-    max-height: 30px;
-  }
   @media only screen and (max-width: 480px) {
     html {
       font-size: 100%;
     }
   }
 `
-const TemplateWrapper = ({ data, children }) => (
-  <div>
-    <Helmet
-      title="Sluttish - recipes for sex exploration"
-      meta={[
-        {
-          name: 'description',
-          content: 'check ghost for older descripotion and keywords',
-        },
-        { name: 'keywords', content: 'get, keywords, from, ghost' },
-      ]}
-    />
-    <Header data={data} />
-    <div>{children()}</div>
-    <Footer data={data} />
-  </div>
-)
+const TemplateWrapper = ({ data, children, location }) => {
+
+  return <div id="outer-container">
+      <Helmet title="Sluttish - recipes for sex exploration" meta={[{ name: 'description', content: 'check ghost for older descripotion and keywords' }, { name: 'keywords', content: 'get, keywords, from, ghost' }]} />
+      <Header data={data} location={location} />
+      <div id="page-wrap">
+        <div>{children()}</div>
+      </div>
+      <Footer data={data} />
+    </div>
+}
 
 TemplateWrapper.propTypes = {
   data: PropTypes.object,

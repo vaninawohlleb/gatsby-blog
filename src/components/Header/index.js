@@ -1,27 +1,49 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import BurgerMenu from './burger-menu'
 import PropTypes from 'prop-types'
 import styled, { extend } from 'styled-components'
+import Logo from '../logo'
 
 const HeaderWrapper = styled.div`
-  position: absolute;
+  position: ${props => (props.isAbsolute ? 'absolute' : 'relative')};
   width: 100%;
-`
-
-const Branding = styled.div`
+  z-index: 1;
+  padding: var(--spacing);
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+
+  @media (min-width: 700px) {
+    padding: var(--big-spacing);
+  }
 `
-const Header = ({ data }) => (
-  <HeaderWrapper>
-    <BurgerMenu menu data={data} />
-    <Branding>
-      <h1>sluttish</h1>
-    </Branding>
-  </HeaderWrapper>
-)
+const Branding = styled.div`
+  color: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
+`
+
+const Slogan = styled.div`
+  font: 400 0.94rem/1.7 var(--monospace-font);
+  display: none;
+
+  @media (min-width: 700px) {
+    display: block;
+  }
+`
+const Burger = styled.div`
+
+`
+const Header = ({ data, location }) => {
+  const isHomePage = location.pathname == '/' ? true : false;
+
+  return <HeaderWrapper isAbsolute={isHomePage}>
+      <Branding isWhite={isHomePage}>
+        <Logo isWhite={isHomePage} />
+        <Slogan>Tips and Tricks for sex exploration</Slogan>
+      </Branding>
+      <Burger>
+        <BurgerMenu menu data={data} isWhite={isHomePage} />
+      </Burger>
+    </HeaderWrapper>}
 
 Header.propType = {
   data: PropTypes.object

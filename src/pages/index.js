@@ -10,7 +10,14 @@ import Grid from '../layouts/grid'
 const PostsWrapper = styled.div`
 
 `
+const BGRWrapper = styled.div`
+  width: 100%;
+  height: 750px;
 
+  @media (min-width: 700px) {
+    background: var(--grey);
+  }
+`
 class IndexPage extends React.Component {
   static propTypes = {
     data: PropTypes.object,
@@ -19,20 +26,24 @@ class IndexPage extends React.Component {
   render() {
     const { edges } = this.props.data.allContentfulPost
     const category = this.props.data.contentfulCategory
+    const sortFeatured = category.posts.sort(function(a, b) {
+      return a.updatedAt > b.updatedAt
+    }).reverse()
+
     const featured = edges.filter(
-      ({ node }) =>
-        category.title === 'featured' && node.id === category.posts[0].id
+      ({ node }) => 
+        category.title === 'featured' && sortFeatured[0].id === node.id
     )
 
     return <PostsWrapper>
         {/* Featured Post */}
-        {featured && featured[0].node && <FeaturedPost post={featured[0].node} key={featured[0].node.id} />}
-        {/* 6 posts */}
-        <Grid data={edges} isHomePage/>
+        {featured && <BGRWrapper>
+          <FeaturedPost post={featured[0].node} key={featured[0].node.id} />
+        </BGRWrapper>}
+        <Grid data={edges} featuredId={featured[0].node.id} isHomePage />
       </PostsWrapper>
   }
 }
-
 
 export default IndexPage
 
@@ -55,7 +66,7 @@ export const contentQuery = graphql`
               url
               fileName
             }
-            resolutions(width: 600) {
+            resolutions(width: 700) {
             ...GatsbyContentfulResolutions
             }
           }
@@ -73,6 +84,7 @@ export const contentQuery = graphql`
       title
       posts {
         id
+        updatedAt
         title {
           title
         }
