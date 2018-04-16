@@ -5,24 +5,27 @@ import Link from 'gatsby-link'
 import H2Styled from '../../components/h2styled'
 import PropTypes from 'prop-types'
 
-const PostWrapper = styled.div`
+const FeaturedPostWrapper = styled.div`
   background: ${props => (props.img ? `url(${props.img})` : 'red')};
-  background-size: 100%;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: left;
+  height: 800px;
 `
 
 const PostBody = styled.div`
 
 `
 const FeaturedPost = ({ post }) => {
-  console.log(post.featuredImage.file.url)
-  return <div className="post-single__featured">
-      <PostWrapper img={post.featuredImage.file.url}>
-        <Link to={post.slug}>
-          <H2Styled data={post.title.title} />
-        </Link>
-        <PostBody>{post.summary}</PostBody>
-      </PostWrapper>
-    </div>
+
+  return <FeaturedPostWrapper img={post.featuredImage.file.url}>
+      <Link to={post.slug}>
+        <H2Styled data={post.title.title} />
+      </Link>
+      <PostBody>{post.summary}</PostBody>
+    </FeaturedPostWrapper>
 }
 
 FeaturedPost.propTypes = {

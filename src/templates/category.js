@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
-import Post from '../layouts/posts/post-triple-column'
+
+import Post from './posts/post'
+import Grid from '../layouts/grid'
 
 const H1BoldStyled = styled.h1`
   @media (max-width: 800px) {
@@ -16,18 +18,19 @@ const H1BoldStyled = styled.h1`
   font-size: 70px;
   color: #004772;
   margin: 0 auto;
-`;
+`
+
+const Category = styled.div`
+
+`
 
 export default({data}) => {
   const category = data.contentfulCategory
 
-  return <div className="category-single">
+  return <Category>
     <H1BoldStyled>{category.title}</H1BoldStyled>
-    {category.posts.map(post => (
-      <Post key={post.id} post={post}/>
-    )
-  )}
-  </div>
+    <Grid data={category.posts} isHomePage={false} />
+  </Category>
 }
 
 // Query Contentful for content type Category

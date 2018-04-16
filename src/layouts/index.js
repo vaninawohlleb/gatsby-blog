@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
+import Footer from '../components/Footer'
 import { injectGlobal } from 'styled-components'
 
 injectGlobal`
@@ -577,27 +578,8 @@ html {
   thead {
     text-align: left;
   }
-  td,
-  th {
-    text-align: left;
-    border-bottom: 1px solid hsla(0, 0%, 0%, 0.12);
-    font-feature-settings: "tnum";
-    -moz-font-feature-settings: "tnum";
-    -ms-font-feature-settings: "tnum";
-    -webkit-font-feature-settings: "tnum";
-    padding-left: 0.96667rem;
-    padding-right: 0.96667rem;
-    padding-top: 0.725rem;
-    padding-bottom: calc(0.725rem - 1px);
-  }
-  th:first-child,
-  td:first-child {
-    padding-left: 0;
-  }
-  th:last-child,
-  td:last-child {
-    padding-right: 0;
-  }
+
+
   tt,
   code {
     background-color: hsla(0, 0%, 0%, 0.04);
@@ -625,6 +607,18 @@ html {
   pre tt:after {
     content: "";
   }
+  .gatsby-image-wrapper {
+    max-width: 100%;
+    max-height: 400px;
+  }
+  .bm-burger-button {
+    width: 30px;
+    height: 30px;
+  }
+  .bm-burger-button > button{
+    max-width: 30px;
+    max-height: 30px;
+  }
   @media only screen and (max-width: 480px) {
     html {
       font-size: 100%;
@@ -636,14 +630,16 @@ const TemplateWrapper = ({ data, children }) => (
     <Helmet
       title="Sluttish - recipes for sex exploration"
       meta={[
-        { name: 'description', content: 'check ghost for older descripotion and keywords' },
+        {
+          name: 'description',
+          content: 'check ghost for older descripotion and keywords',
+        },
         { name: 'keywords', content: 'get, keywords, from, ghost' },
       ]}
     />
-    <Header data={data}/>
-    <div>
-      {children()}
-    </div>
+    <Header data={data} />
+    <div>{children()}</div>
+    <Footer data={data} />
   </div>
 )
 
@@ -669,6 +665,8 @@ export const navigationQuery = graphql`
     allContentfulPage(limit: 2) {
       edges {
         node {
+          id
+          slug
           title
           body {
             childMarkdownRemark {
