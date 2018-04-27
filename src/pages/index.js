@@ -57,10 +57,12 @@ export const contentQuery = graphql`
         node {
           id
           slug
+
           title {
             title
           }
           summary
+          entryType
           featuredImage{
             file {
               url
@@ -70,6 +72,7 @@ export const contentQuery = graphql`
             ...GatsbyContentfulResolutions
             }
           }
+
           author {
             id
             name
