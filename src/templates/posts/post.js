@@ -13,6 +13,9 @@ const PostWrapper = styled.div`
     max-width: 100%;
     max-height: 339px;
   }
+  h4 {
+    margin: .5rem 0;
+  }
 `
 const PostBody = styled.div`
   > a {
@@ -20,15 +23,28 @@ const PostBody = styled.div`
   }
 `
 const Post = ({ post }) => {
+  const cleanEntryType = post.entryType ? 
+    post.entryType.replace(/[^A-Z0-9 ]+/gi, '') :
+    null
+
+  const entryTypeSlug = cleanEntryType ?
+    cleanEntryType.replace(' ', '-') :
+    null
+
   return <PostWrapper>
-      {post.featuredImage && <Img resolutions={post.featuredImage.resolutions} />}
-      <PostBody>
-        <Link to={post.slug}>
-          <h2>{post.title.title}</h2>
-        </Link>
-        {post.summary}
-      </PostBody>
-    </PostWrapper>
+    {entryTypeSlug &&
+      <Link to={entryTypeSlug}>
+        <h4>{post.entryType}</h4>
+      </Link>
+    }
+    {post.featuredImage && <Img resolutions={post.featuredImage.resolutions} />}
+    <PostBody>
+      <Link to={post.slug}>
+        <h2>{post.title.title}</h2>
+      </Link>
+      {post.summary}
+    </PostBody>
+  </PostWrapper>
 }
 
 Post.propTypes = {
