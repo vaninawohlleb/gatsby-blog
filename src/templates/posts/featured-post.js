@@ -2,29 +2,63 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
-import H2Styled from '../../components/h2styled'
 import PropTypes from 'prop-types'
 
 const FeaturedPostWrapper = styled.div`
-  background: ${props => (props.img ? `url(${props.img})` : 'red')};
-  background-size: cover;
+  background: ${props => (props.img ? `url(${props.img})` : 'var(--grey)')};
+  background-size: 100%;
+  background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: left;
-  height: 800px;
+  height: 100%;
+
+  @media (min-width: 700px) {
+    background-size: cover;
+  }
 `
 
 const PostBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing);
+  color: white;
+  max-width: 800px;
 
+  > a {
+    color: white;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 700px) {
+    padding: 5rem var(--big-spacing);
+
+    h1 {
+      font-size: 3rem;
+    }
+  }
+`
+
+const Summary = styled.div`
+  font-size: 1.2rem;
+  display: none;
+
+  @media (min-width: 700px) {
+    display: block;
+  }
 `
 const FeaturedPost = ({ post }) => {
-
   return <FeaturedPostWrapper img={post.featuredImage.file.url}>
-      <Link to={post.slug}>
-        <H2Styled data={post.title.title} />
-      </Link>
-      <PostBody>{post.summary}</PostBody>
+      <PostBody>
+        <Link to={post.slug}>
+          <h1>{post.title.title}</h1>
+        </Link>
+       <Summary>{post.summary}</Summary>
+      </PostBody>
     </FeaturedPostWrapper>
 }
 

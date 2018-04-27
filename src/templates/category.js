@@ -2,36 +2,32 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
 import Post from './posts/post'
 import Grid from '../layouts/grid'
 
 const H1BoldStyled = styled.h1`
-  @media (max-width: 800px) {
-    font-size: 40px;
-    padding: 2.5em 0.7em 0;
-  }
-
-  padding: 1.5em 0.4em 0;
-  max-width: 1024px;
-  text-transform: uppercase;
-  font-size: 70px;
-  color: #004772;
-  margin: 0 auto;
+  text-align: center;
 `
 
 const Category = styled.div`
 
 `
 
-export default({data}) => {
+const CategoryPage = ({data}) => {
   const category = data.contentfulCategory
-
   return <Category>
     <H1BoldStyled>{category.title}</H1BoldStyled>
     <Grid data={category.posts} isHomePage={false} />
   </Category>
 }
+
+CategoryPage.propTypes = {
+  data: PropTypes.object
+}
+
+export default CategoryPage;
 
 // Query Contentful for content type Category
 export const categoryQuery = graphql`
@@ -47,7 +43,7 @@ export const categoryQuery = graphql`
         slug
         summary
         featuredImage{
-          resolutions(width: 400) {
+          resolutions(width: 700) {
           ...GatsbyContentfulResolutions
           }
         }

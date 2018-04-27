@@ -1,16 +1,22 @@
 import React, { Component } from 'react'
 import styled, { extend } from 'styled-components'
 import PropTypes from 'prop-types'
+import SubscribeWidget from '../components/subscribe-widget'
 
 import Post from '../templates/posts/post'
 
 const GridWrapper = styled.div`
   max-width: 1250px;
-  margin: 0 auto;
+  margin: var(--big-spacing) auto 0;
+  padding: 10px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 3fr));
-  grid-gap: 24px;
-  grid-template-rows: auto auto 1200px auto;
+  grid-gap: var(--big-spacing);
+  grid-template-rows: auto auto 100% auto;
+
+  @media (min-width: 480px) {
+    padding: var(--big-spacing) var(--big-spacing) 0;
+  }
 `
 
 const FullWidth = styled.div`
@@ -25,29 +31,40 @@ const FullWidth = styled.div`
   }
 `
 
-const Grid = ({data, isHomePage}) => {
-  const sixPosts = data.slice(1, 7)
-  const threePosts = data.slice(7, 11)
-
-  return (
-  <GridWrapper>
-    {isHomePage &&
-      sixPosts.map(({ node }) => <Post post={node} key={node.id} />
-    )}
-    {isHomePage == false &&
-      data.map(post => <Post post={post} key={post.id} />
-    )}
-    <FullWidth>LALALLALALA</FullWidth>
-    {isHomePage &&
-      threePosts.map(({ node }) => <Post post={node} key={node.id} />
-    )}
+const Grid = ({ data, isHomePage, featuredId }) => {
+  const sixPosts = isHomePage ? data
+    .filter(({ node }) => node.id !== featuredId)
+    .slice(0, 6)
+    : null
     
-  </GridWrapper>
-  )
+  const threePosts = isHomePage ? data
+    .filter(({ node }) => node.id !== featuredId)
+    .slice(6, 9)
+    : null
+
+ 
+  return <div>
+      <GridWrapper>
+        {isHomePage && sixPosts.map(({ node }) => (
+            <Post post={node} key={node.id} />
+          ))}
+        {isHomePage == false && data.map(post => (
+            <Post post={post} key={post.id} />
+          ))}
+      </GridWrapper>
+      {isHomePage && <FullWidth>
+          <SubscribeWidget />
+        </FullWidth>}
+      {isHomePage && (data.length >= 6) && <GridWrapper>
+          {threePosts.map(({ node }) => <Post post={node} key={node.id} />)}
+        </GridWrapper>}
+    </div>
 }
 
 Grid.propTypes = {
-  data: PropTypes.array 
+  data: PropTypes.array,
+  isHomePage: PropTypes.bool,
+  lcoation: PropTypes.object
 }
 
 export default Grid;

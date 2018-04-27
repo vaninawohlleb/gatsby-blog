@@ -11,6 +11,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           edges {
             node {
               slug
+              entryType
             }
           }
         }
@@ -46,8 +47,24 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           },
         })
       })
+
+      // Contenful Entry Types
+      result.data.allContentfulPost.edges.map(({ node }) => {
+        const cleanSlug = (node.entryType !== null) && node.entryType.replace(/[^a-zA-Z0-9-. ]/g, '')
+        const entryTypeSlug = cleanSlug && cleanSlug.replace(/[^A-Z0-9]+/gi, '-')
+
+        if (entryTypeSlug && entryTypeSlug !== null) {
+          createPage({
+            path: `${entryTypeSlug}`,
+            component: path.resolve(`src/templates/${entryTypeSlug}.js`),
+            context: {
+              entryType: node.entryType,
+            },
+          })
+        }
+      })
+      
       resolve()
     })
-    
   })
 }
