@@ -9,18 +9,28 @@ const PostWrapper = styled.div`
     margin-bottom: 1rem;
     text-align: center;
   }
+
   .gatsby-image-wrapper {
     max-width: 100%;
     max-height: 339px;
   }
-  h4 {
+
+  .margin {
+    margin-top: 2rem;
+  }
+
+  h4, h2 {
     margin: .5rem 0;
+  }
+
+  h4 {
+    color: #1e2ad2;
   }
 `
 const PostBody = styled.div`
-  > a {
-    color: #1e2ad2;
-  }
+  // > a {
+  //   color: #1e2ad2;
+  // }
 `
 const Post = ({ post }) => {
   const cleanEntryType = post.entryType ? 
@@ -37,7 +47,7 @@ const Post = ({ post }) => {
         <h4>{post.entryType}</h4>
       </Link>
     }
-    {post.featuredImage && <Img resolutions={post.featuredImage.resolutions} />}
+    {post.featuredImage && <Img resolutions={post.featuredImage.resolutions} className={entryTypeSlug === null ? 'margin' : ''}/>}
     <PostBody>
       <Link to={post.slug}>
         <h2>{post.title.title}</h2>

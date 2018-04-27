@@ -217,7 +217,7 @@ export default TemplateWrapper
 
 export const navigationQuery = graphql`
   query NavigationQuery{
-    allContentfulCategory(limit: 3) {
+    allContentfulCategory(limit: 5) {
       edges {
         node {
           id

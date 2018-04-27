@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const FeaturedPostWrapper = styled.div`
   background: ${props => (props.img ? `url(${props.img})` : 'var(--grey)')};
-  background-size: 100%;
+  background-size: cover;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -14,9 +14,9 @@ const FeaturedPostWrapper = styled.div`
   align-items: left;
   height: 100%;
 
-  @media (min-width: 700px) {
-    background-size: cover;
-  }
+  // @media (min-width: 700px) {
+  //   background-size: cover;
+  // }
 `
 
 const PostBody = styled.div`
