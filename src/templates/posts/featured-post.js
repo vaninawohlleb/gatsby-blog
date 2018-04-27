@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 const FeaturedPostWrapper = styled.div`
   background: ${props => (props.img ? `url(${props.img})` : 'var(--grey)')};
-  background-size: contain;
+  background-size: 100%;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -15,7 +15,6 @@ const FeaturedPostWrapper = styled.div`
   height: 100%;
 
   @media (min-width: 700px) {
-    opacity: 0.7;
     background-size: cover;
   }
 `
@@ -23,25 +22,36 @@ const FeaturedPostWrapper = styled.div`
 const PostBody = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 6rem var(--spacing);
-  color: black;
+  padding: var(--spacing);
+  color: white;
   max-width: 800px;
 
-  @media (min-width: 700px) {
+  > a {
     color: white;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  @media (min-width: 700px) {
     padding: 5rem var(--big-spacing);
 
-    > a {
-      color: white;
+    h1 {
+      font-size: 3rem;
     }
   }
 `
 
 const Summary = styled.div`
   font-size: 1.2rem;
+  display: none;
+
+  @media (min-width: 700px) {
+    display: block;
+  }
 `
 const FeaturedPost = ({ post }) => {
-
   return <FeaturedPostWrapper img={post.featuredImage.file.url}>
       <PostBody>
         <Link to={post.slug}>

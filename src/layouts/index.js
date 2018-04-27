@@ -198,7 +198,7 @@ injectGlobal`
 const TemplateWrapper = ({ data, children, location }) => {
 
   return <div id="outer-container">
-      <Helmet title="Sluttish - recipes for sex exploration" meta={[{ name: 'description', content: 'check ghost for older descripotion and keywords' }, { name: 'keywords', content: 'get, keywords, from, ghost' }]} />
+      <Helmet title="Sluttish - tops and tricks on sex exploration" meta={[{ name: 'description', content: 'check ghost for older descripotion and keywords' }, { name: 'keywords', content: 'get, keywords, from, ghost' }]} />
       <Header data={data} location={location} />
       <div id="page-wrap">
         <div>{children()}</div>
@@ -210,6 +210,7 @@ const TemplateWrapper = ({ data, children, location }) => {
 TemplateWrapper.propTypes = {
   data: PropTypes.object,
   children: PropTypes.func,
+  location: PropTypes.object
 }
 
 export default TemplateWrapper

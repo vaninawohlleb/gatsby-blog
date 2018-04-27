@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
+import PropTypes from 'prop-types'
 
 import Post from './posts/post'
 import Grid from '../layouts/grid'
@@ -14,13 +15,19 @@ const Category = styled.div`
 
 `
 
-export default({data}) => {
+const CategoryPage = ({data}) => {
   const category = data.contentfulCategory
   return <Category>
     <H1BoldStyled>{category.title}</H1BoldStyled>
     <Grid data={category.posts} isHomePage={false} />
   </Category>
 }
+
+CategoryPage.propTypes = {
+  data: PropTypes.object
+}
+
+export default CategoryPage;
 
 // Query Contentful for content type Category
 export const categoryQuery = graphql`

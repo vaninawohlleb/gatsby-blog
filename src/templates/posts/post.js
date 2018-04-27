@@ -15,6 +15,9 @@ const PostWrapper = styled.div`
   }
 `
 const PostBody = styled.div`
+  > a {
+    color: #1e2ad2;
+  }
 `
 const Post = ({ post }) => {
   return <PostWrapper>

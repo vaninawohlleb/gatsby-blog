@@ -12,10 +12,10 @@ const PostsWrapper = styled.div`
 `
 const BGRWrapper = styled.div`
   width: 100%;
-  height: 750px;
+  height: 600px;
 
   @media (min-width: 700px) {
-    background: var(--grey);
+    height: 750px;
   }
 `
 class IndexPage extends React.Component {

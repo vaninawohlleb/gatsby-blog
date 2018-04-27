@@ -55,14 +55,16 @@ const Grid = ({ data, isHomePage, featuredId }) => {
       {isHomePage && <FullWidth>
           <SubscribeWidget />
         </FullWidth>}
-      {isHomePage && <GridWrapper>
+      {isHomePage && (data.length >= 6) && <GridWrapper>
           {threePosts.map(({ node }) => <Post post={node} key={node.id} />)}
         </GridWrapper>}
     </div>
 }
 
 Grid.propTypes = {
-  data: PropTypes.array 
+  data: PropTypes.array,
+  isHomePage: PropTypes.bool,
+  lcoation: PropTypes.object
 }
 
 export default Grid;

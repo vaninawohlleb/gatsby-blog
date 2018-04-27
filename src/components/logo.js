@@ -1,6 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled, { extend } from 'styled-components'
+import PropTypes from 'prop-types'
 
 const LogoWrapper = styled.h1`
   font-size: 3.3rem;
@@ -13,6 +14,12 @@ const LogoWrapper = styled.h1`
   }
 `
 
-export default({isWhite}) => {
-  return <Link to='/'><LogoWrapper isWhite={isWhite}>Sluttish</LogoWrapper></Link>
+const Logo = ({isWhite}) => (
+  <Link to='/'><LogoWrapper isWhite={isWhite}>Sluttish</LogoWrapper></Link>
+)
+
+Logo.propTypes = {
+  isWhite: PropTypes.bool
 }
+
+export default Logo

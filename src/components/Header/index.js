@@ -38,15 +38,16 @@ const Header = ({ data, location }) => {
   return <HeaderWrapper isAbsolute={isHomePage}>
       <Branding isWhite={isHomePage}>
         <Logo isWhite={isHomePage} />
-        <Slogan>Tips and Tricks for sex exploration</Slogan>
+        <Slogan>Tips and Tricks on sex exploration</Slogan>
       </Branding>
       <Burger>
         <BurgerMenu menu data={data} isWhite={isHomePage} />
       </Burger>
     </HeaderWrapper>}
 
-Header.propType = {
-  data: PropTypes.object
+Header.propTypes = {
+  data: PropTypes.object,
+  location: PropTypes.object
 }
 
 export default Header

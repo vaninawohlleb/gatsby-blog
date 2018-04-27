@@ -57,7 +57,7 @@ const Footer = ({ data }) => (
   </FooterWrapper>
 )
 
-Footer.propType = {
+Footer.propTypes = {
   data: PropTypes.object
 }
 
