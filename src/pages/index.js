@@ -13,6 +13,7 @@ const PostsWrapper = styled.div`
 const BGRWrapper = styled.div`
   width: 100%;
   height: 600px;
+ // background: #ee9ae5;
 
   @media (min-width: 700px) {
     height: 750px;
@@ -51,7 +52,7 @@ export const contentQuery = graphql`
   query contentQuery {
     allContentfulPost(
       limit: 10
-      sort: { fields: [updatedAt], order: DESC }
+      sort: { fields: [date], order: DESC }
     ) {
       edges {
         node {

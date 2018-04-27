@@ -57,6 +57,7 @@ class BurgerMenu extends React.Component {
   render() {
     const categories = this.props.data.allContentfulCategory.edges
     const pages = this.props.data.allContentfulPage.edges
+    const categoriesWithoutFeatured = categories.filter(({node}) => node.id !== 'c29K62kBmPyq8O2EciGaKyE');
 
     return (
       <MenuWrapper isWhite={this.props.isWhite}>
@@ -72,7 +73,7 @@ class BurgerMenu extends React.Component {
               outerContainerId={'outer-container'}
             >
               {/* Categories */}
-              {categories.map(category => (
+              {categoriesWithoutFeatured.map(category => (
                 <Link key={category.node.id} to={category.node.slug}>
                   <MenuItem>
                     <h3>{category.node.title}</h3>
@@ -80,14 +81,36 @@ class BurgerMenu extends React.Component {
                 </Link>
               ))}
 
-              {/* Pages */}
-              {pages.map(page => (
-                <Link key={page.node.id} to={page.node.slug}>
-                  <MenuItem onClick={() => this.closeMenu()}>
-                    <h3>{page.node.title}</h3>
+              {/* Custom Links*/}
+                <Link key='who' to='whos-who'>
+                  <MenuItem>
+                    <h3>who's who</h3>
                   </MenuItem>
                 </Link>
-              ))}
+                <Link key='what-is' to='what-is'>
+                  <MenuItem>
+                    <h3>what is</h3>
+                  </MenuItem>
+                </Link>
+                {/* <Link key='how' to='how-tos'>
+                  <MenuItem>
+                    <h3>how to's</h3>
+                  </MenuItem>
+                </Link> */}
+                <Link key='events' to='events'>
+                  <MenuItem>
+                    <h3>events</h3>
+                  </MenuItem>
+                </Link>
+
+                {/* Pages */}
+                {pages.map(page => (
+                  <Link key={page.node.id} to={page.node.slug}>
+                    <MenuItem>
+                      <h3>{page.node.title}</h3>
+                    </MenuItem>
+                  </Link>
+                ))}
             </Menu>
           )}
       </MenuWrapper>
