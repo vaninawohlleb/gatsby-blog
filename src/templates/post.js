@@ -36,7 +36,7 @@ const PostBody = styled.div`
     margin: 0 auto var(--spacing);
   }
 
-  p {
+  p, h3 {
     margin: 1.57rem;
   }
 
@@ -54,8 +54,8 @@ const PostBody = styled.div`
     border-image-slice: 1;
   }
 
-  a {
-    color: var(--blue);
+  a, h3 {
+    color: var(--purple);
   }
 `
 const Info = styled.div`
