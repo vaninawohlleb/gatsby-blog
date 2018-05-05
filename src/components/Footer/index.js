@@ -8,7 +8,7 @@ const FooterWrapper = styled.div`
   display: flex;
   justify-items: center;
   padding: 5rem 0;
-  background: #1e2ad2;
+  background: var(--purple);
   flex-direction: column;
 
   @media (min-width: 900px) {

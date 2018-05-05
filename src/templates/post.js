@@ -36,7 +36,7 @@ const PostBody = styled.div`
     margin: 0 auto var(--spacing);
   }
 
-  p {
+  p, h3 {
     margin: 1.57rem;
   }
 
@@ -52,6 +52,10 @@ const PostBody = styled.div`
       #ee9ae5 100%
     );
     border-image-slice: 1;
+  }
+
+  a, h3 {
+    color: var(--purple);
   }
 `
 const Info = styled.div`

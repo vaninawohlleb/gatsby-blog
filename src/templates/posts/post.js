@@ -24,7 +24,7 @@ const PostWrapper = styled.div`
   }
 
   h4 {
-    color: #1e2ad2;
+    color: var(--blue);
   }
 `
 const PostBody = styled.div`
