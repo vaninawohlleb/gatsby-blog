@@ -55,7 +55,7 @@ const Grid = ({ data, isHomePage, featuredId }) => {
       {isHomePage && <FullWidth>
           <SubscribeWidget />
         </FullWidth>}
-      {isHomePage && (data.length >= 6) && <GridWrapper>
+      {isHomePage && (data.length > 6) && <GridWrapper>
           {threePosts.map(({ node }) => <Post post={node} key={node.id} />)}
         </GridWrapper>}
     </div>

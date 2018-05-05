@@ -42,8 +42,8 @@ const typography = new Typography({
     '*:after': {
       'box-sizing': 'inherit',
     },
-    'body': {
-      'overflow': 'hidden'
+    body: {
+      overflow: 'hidden',
     },
     a: {
       color: 'var(--grey)',
@@ -60,15 +60,15 @@ const typography = new Typography({
     h1: {
       'font-size': '3rem',
     },
-    'h2\, h3': {
+    'h2, h3': {
       'line-height': '1.5',
     },
     iframe: {
-      'margin-bottom': '0'
+      'margin-bottom': '0',
     },
     del: {
       'text-decoration': 'none',
-      background: 'yellow'
+      background: '#ee9ae5',
     },
     '.bm-menu-wrap': {
       top: '0',
@@ -84,7 +84,7 @@ const typography = new Typography({
     },
     '.bm-cross-button': {
       'margin-top': '1.5rem',
-      'margin-right': '1rem'
+      'margin-right': '1rem',
     },
     '.bm-cross': {
       background: 'white',
@@ -92,8 +92,8 @@ const typography = new Typography({
       width: '7px !important',
     },
     '.gatsby-image-wrapper': {
-      'max-width': '100%'
-    }
+      'max-width': '100%',
+    },
   }),
 })
 

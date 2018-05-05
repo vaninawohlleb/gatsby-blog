@@ -4,6 +4,12 @@ import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import moment from 'moment'
+// import InstagramEmbed from 'react-instagram-embed'
+let InnerHTML;
+
+if (typeof window !== `undefined`) {
+  InnerHTML = require('script-inner-html')
+}
 
 const SinglePost = styled.div`
   
@@ -22,9 +28,16 @@ const PostBody = styled.div`
   max-width: 1025px;
   margin: 0 auto;
   padding: 2rem;
+  font-size: 16px;
+  line-height: 2.1;
 
   img {
-    margin-bottom: var(--spacing);
+    display: block;
+    margin: 0 auto var(--spacing);
+  }
+
+  p {
+    margin: 1.57rem;
   }
 
   blockquote {
@@ -78,7 +91,11 @@ const PostPage = ({data}) => {
           {post.updatedAt && <UpdatedAt>{date}</UpdatedAt>}
         </Meta>
       </Info>
-      {post.body && <PostBody dangerouslySetInnerHTML={{ __html: post.body.childMarkdownRemark.html }} />}
+      {typeof window !== 'undefined' && (
+      <PostBody>
+        <InnerHTML html={ post.body.childMarkdownRemark.html } />
+      </PostBody>
+      )}
     </SinglePost>
 }
 

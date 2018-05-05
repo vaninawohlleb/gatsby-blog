@@ -42,19 +42,19 @@ const Footer = ({ data }) => (
     <FooterWidget>
       <Logo isWhite />
       <Socials>
-        <Link to="https://twitter.com/sluttishmedia">
+        <a href="https://twitter.com/sluttishmedia">
           <Social><i className="fab fa-twitter" /></Social>
-        </Link>
-        <Link to="https://instagram.com/sluttish__">
+        </a>
+        <a href="https://instagram.com/sluttish__">
           <Social><i className="fab fa-instagram" /></Social>
-        </Link>
-        <Link to="/">
+        </a>
+        <a href="/">
           <Social><i className="fab fa-medium" /></Social>
-        </Link>
+        </a>
       </Socials>
     </FooterWidget>
     <FooterWidget>I am always interested in collaborations. 
-      If you feel you have things to say on sex and relationships, you create content or/and art in this field,
+      If you feel you have things to say on sex and relationships, you create content/art or work in this field,
       or you simply want to say Hi message me - vanina@sluttish.us</FooterWidget>
   </FooterWrapper>
 )
