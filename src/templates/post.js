@@ -4,11 +4,10 @@ import styled, { extend } from 'styled-components'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import moment from 'moment'
-import InstagramEmbed from 'react-instagram-embed'
+// import InstagramEmbed from 'react-instagram-embed'
 let InnerHTML;
 
 if (typeof window !== `undefined`) {
-  console.log('up')
   InnerHTML = require('script-inner-html')
 }
 
