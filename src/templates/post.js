@@ -53,6 +53,10 @@ const PostBody = styled.div`
     );
     border-image-slice: 1;
   }
+
+  a {
+    color: var(--blue);
+  }
 `
 const Info = styled.div`
   max-width: 1025px;

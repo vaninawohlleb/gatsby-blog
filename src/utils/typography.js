@@ -21,9 +21,9 @@ const typography = new Typography({
   headerWeight: '700',
   overrideStyles: ({ adjustFontSizeTo, rhythm }) => ({
     ':root': {
-      '--blue': '',
+      '--blue': '#1e2ad2',
       '--grey': '#666',
-      '--purple': '',
+      '--purple': '#755FD8',
       '--spacing': '1.5rem',
       '--big-spacing': '3rem',
       '--monospace-font': "'Cousine', monospace",
@@ -68,7 +68,8 @@ const typography = new Typography({
     },
     del: {
       'text-decoration': 'none',
-      background: '#ee9ae5',
+      background: 'var(--purple)',
+      color: 'white'
     },
     '.bm-menu-wrap': {
       top: '0',
