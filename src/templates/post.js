@@ -27,7 +27,6 @@ const ImgWrapper = styled.div`
 const PostBody = styled.div`
   max-width: 1025px;
   margin: 0 auto;
-  padding: 2rem;
   font-size: 16px;
   line-height: 2.1;
 
@@ -36,13 +35,13 @@ const PostBody = styled.div`
     margin: 0 auto var(--spacing);
   }
 
-  p, h3 {
+  p,
+  h3 {
     margin: 1.57rem;
   }
 
   blockquote {
     font-size: 17px;
-    padding: var(--big-spacing);
     border: 5px transparent solid;
     border-image: linear-gradient(
       to right,
@@ -52,10 +51,19 @@ const PostBody = styled.div`
       #ee9ae5 100%
     );
     border-image-slice: 1;
+
+    @media (min-width: 520px) {
+      padding: var(--big-spacing);
+    }
   }
 
-  a, h3 {
+  a,
+  h3 {
     color: var(--purple);
+  }
+
+  @media (min-width: 520px) {
+    padding: 2rem;
   }
 `
 const Info = styled.div`
