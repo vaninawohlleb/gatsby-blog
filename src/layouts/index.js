@@ -198,7 +198,7 @@ injectGlobal`
 const TemplateWrapper = ({ data, children, location }) => {
 
   return <div id="outer-container">
-      <Helmet title="Sluttish - tips and tricks on sex exploration" meta={[{ name: 'description', content: 'check ghost for older descripotion and keywords' }, { name: 'keywords', content: 'get, keywords, from, ghost' }]} />
+      <Helmet title="Sluttish - tips and tricks on sex exploration" meta={[{ name: 'description', content: 'Sluttish aims to explore our sexuality by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendlyt' }]} /> 
       <Header data={data} location={location} />
       <div id="page-wrap">
         <div>{children()}</div>
