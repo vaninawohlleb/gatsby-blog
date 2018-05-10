@@ -7,6 +7,8 @@ import Post from '../templates/posts/post'
 
 const GridWrapper = styled.div`
   max-width: 1250px;
+  width: 100%;
+  overflow: hidden;
   margin: var(--big-spacing) auto 0;
   padding: 10px;
   display: grid;

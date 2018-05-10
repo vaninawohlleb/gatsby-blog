@@ -5,6 +5,9 @@ import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
 const PostWrapper = styled.div`
+  width: 100%;
+  overflow: hidden;
+  
   .gatsby-image-outer-wrapper {
     margin-bottom: 1rem;
     text-align: center;
