@@ -33,29 +33,37 @@ const Social = styled.span`
 const Footer = ({ data }) => (
   <FooterWrapper>
     <FooterWidget>
-      Sluttish aims to explore our sexuality by creating and curating
-      adult sex ed, feminist and alternative porn, practical sex tips, 
-      and everything that turns us on and needs exploring. It is written from a
-      white, cis woman, non monogamous perspective, but it aims to be 
-      inclusive to as many diverse perspectives as possible
+      Sluttish aims to explore our sexuality by creating and curating adult sex
+      ed, feminist and alternative porn, practical sex tips, and everything that
+      turns us on and needs exploring. It is written from a white, non
+      monogamous cis woman perspective, but it aims to be inclusive to as many
+      diverse perspectives as possible
     </FooterWidget>
     <FooterWidget>
       <Logo isWhite />
       <Socials>
         <a href="https://twitter.com/sluttishmedia">
-          <Social><i className="fab fa-twitter" /></Social>
+          <Social>
+            <i className="fab fa-twitter" />
+          </Social>
         </a>
         <a href="https://instagram.com/sluttish__">
-          <Social><i className="fab fa-instagram" /></Social>
+          <Social>
+            <i className="fab fa-instagram" />
+          </Social>
         </a>
         <a href="/">
-          <Social><i className="fab fa-medium" /></Social>
+          <Social>
+            <i className="fab fa-medium" />
+          </Social>
         </a>
       </Socials>
     </FooterWidget>
-    <FooterWidget>I am always interested in collaborations. 
-      If you feel you have things to say on sex and relationships, you create content/art or work in this field,
-      or you simply want to say Hi message me - vanina@sluttish.us</FooterWidget>
+    <FooterWidget>
+      I am always interested in collaborations. If you feel you have things to
+      say on sex and relationships, you create content/art or work in this
+      field, or you simply want to say Hi message me - vanina@sluttish.us
+    </FooterWidget>
   </FooterWrapper>
 )
 
