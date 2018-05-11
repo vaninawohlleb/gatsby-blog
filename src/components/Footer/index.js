@@ -13,7 +13,7 @@ const FooterWrapper = styled.div`
 
   @media (min-width: 900px) {
     flex-direction: row;
-    align-items: flex-end;
+    align-items: center;
   }
 `
 const FooterWidget = styled.div`
@@ -21,6 +21,11 @@ const FooterWidget = styled.div`
   padding: var(--spacing);
   text-align: center;
   color: white;
+
+  a {
+    color: white;
+    text-transform: uppercase;
+  }
 `
 const Socials = styled.div`
   margin: 1rem auto;
@@ -58,12 +63,12 @@ const Footer = ({ data }) => (
           </Social>
         </a>
       </Socials>
+      <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank">gatsby</a>, <a href="https://www.contentful.com/" target="_blank">contentful</a>, and <a href="https://www.netlify.com/" target="_blank">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank">git</a></p>
     </FooterWidget>
     <FooterWidget>
       <p>I am always interested in collaborations. If you feel you have things to
       say on sex and relationships, you create content/art or work in this
       field, or you simply want to say Hi message me - vanina@sluttish.us</p>
-      <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank">gatsbyjs</a>, <a href="https://www.contentful.com/" target="_blank">contentful</a>, and <a href="https://www.netlify.com/" target="_blank">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank">git</a></p>
     </FooterWidget>
   </FooterWrapper>
 )
