@@ -197,7 +197,6 @@ injectGlobal`
   }
 `
 const TemplateWrapper = ({ data, children, location }) => {
-
   return <div id="outer-container">
       <Helmet title="Sluttish - tips and tricks on sex exploration" meta={[{ name: 'description', content: 'Sluttish aims to explore our sexuality by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendlyt' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
       <Header data={data} location={location} />
