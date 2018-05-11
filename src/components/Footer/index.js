@@ -60,9 +60,10 @@ const Footer = ({ data }) => (
       </Socials>
     </FooterWidget>
     <FooterWidget>
-      I am always interested in collaborations. If you feel you have things to
+      <p>I am always interested in collaborations. If you feel you have things to
       say on sex and relationships, you create content/art or work in this
-      field, or you simply want to say Hi message me - vanina@sluttish.us
+      field, or you simply want to say Hi message me - vanina@sluttish.us</p>
+      <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank">gatsbyjs</a>, <a href="https://www.contentful.com/" target="_blank">contentful</a>, and <a href="https://www.netlify.com/" target="_blank">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank">git</a></p>
     </FooterWidget>
   </FooterWrapper>
 )
