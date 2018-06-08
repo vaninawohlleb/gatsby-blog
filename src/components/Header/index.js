@@ -38,7 +38,7 @@ const Header = ({ data, location }) => {
   return <HeaderWrapper isAbsolute={isHomePage}>
       <Branding isWhite={isHomePage}>
         <Logo isWhite={isHomePage} />
-        <Slogan>Tips and Tricks on sex exploration</Slogan>
+        <Slogan>Exploring female sexuality</Slogan>
       </Branding>
       <Burger>
         <BurgerMenu menu data={data} isWhite={isHomePage} />

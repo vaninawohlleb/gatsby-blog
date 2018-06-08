@@ -40,7 +40,7 @@ const Footer = ({ data }) => (
     <FooterWidget>
       Sluttish aims to explore our sexuality by creating and curating adult sex
       ed, feminist and alternative porn, practical sex tips, and everything that
-      turns us on and needs exploring. The site also aims to destigmatize female pleasure and stop slut shaming. It is written from a white, non
+      turns us on and needs exploring. The site also aims to de-stigmatize female pleasure and stop slut shaming. It is written from a white, non
       monogamous cis woman perspective, but it aims to be inclusive to as many
       diverse perspectives as possible
     </FooterWidget>
