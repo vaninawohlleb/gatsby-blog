@@ -92,6 +92,9 @@ injectGlobal`
   img {
     border-style: none;
   }
+  iframe {
+    margin: 0 auto !important;
+  }
   svg:not(:root) {
     overflow: hidden;
   }
