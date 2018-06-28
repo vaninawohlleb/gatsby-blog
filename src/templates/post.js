@@ -61,6 +61,14 @@ const PostBody = styled.div`
     }
   }
 
+  blockquote {
+    * {
+      &:last-child {
+        margin-bottom: 1.57rem;
+      }
+    }
+  }
+
   a,
   h3 {
     color: var(--purple);
