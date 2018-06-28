@@ -51,6 +51,8 @@ const PostBody = styled.div`
       #ee9ae5 100%
     );
     border-image-slice: 1;
+    text-transform: uppercase;
+    color: #1e2ad2;
 
     @media (min-width: 520px) {
       padding: var(--big-spacing);
