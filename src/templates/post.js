@@ -64,7 +64,7 @@ const PostBody = styled.div`
   blockquote {
     * {
       &:last-child {
-        margin-bottom: 157rem;
+        margin-bottom: 1.57rem;
       }
     }
   }
