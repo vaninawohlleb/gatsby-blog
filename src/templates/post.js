@@ -99,7 +99,7 @@ const UpdatedAt = styled.span`
 const PostPage = ({data}) => {
   const post = data.contentfulPost
   const date = moment(`${post.updatedAt}`).format('DD MMMM')
-  console.log(post.featuredImage.file.url)
+ 
   return <SinglePost>
       {post.featuredImage && <ImgWrapper>
           <img src={post.featuredImage.file.url} />
