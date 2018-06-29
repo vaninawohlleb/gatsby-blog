@@ -27,21 +27,14 @@ class IndexPage extends React.Component {
   render() {
     const { edges } = this.props.data.allContentfulPost
     const category = this.props.data.contentfulCategory
-    const sortFeatured = category.posts.sort(function(a, b) {
-      return a.updatedAt > b.updatedAt
-    }).reverse()
-
-    const featured = edges.filter(
-      ({ node }) => 
-        category.title === 'featured' && sortFeatured[0].id === node.id
-    )
+    const featured = edges.find(({ node }) => node.featuredPost == true)
 
     return <PostsWrapper>
         {/* Featured Post */}
         {featured && <BGRWrapper>
-          <FeaturedPost post={featured[0].node} key={featured[0].node.id} />
+          <FeaturedPost post={featured} key={featured.id} />
         </BGRWrapper>}
-        <Grid data={edges} featuredId={featured[0].node.id} isHomePage />
+        <Grid data={edges} featuredId={featured.id} isHomePage />
       </PostsWrapper>
   }
 }
@@ -51,7 +44,6 @@ export default IndexPage
 export const contentQuery = graphql`
   query contentQuery {
     allContentfulPost(
-      limit: 10
       sort: { fields: [date], order: DESC }
     ) {
       edges {
@@ -62,6 +54,7 @@ export const contentQuery = graphql`
           title {
             title
           }
+          featuredPost
           summary
           entryType
           featuredImage{
