@@ -28,13 +28,13 @@ class IndexPage extends React.Component {
     const { edges } = this.props.data.allContentfulPost
     const category = this.props.data.contentfulCategory
     const featured = edges.find(({ node }) => node.featuredPost == true)
-
+    console.log(featured.node.id)
     return <PostsWrapper>
         {/* Featured Post */}
         {featured && <BGRWrapper>
-          <FeaturedPost post={featured} key={featured.id} />
+          <FeaturedPost post={featured} key={featured.node.id} />
         </BGRWrapper>}
-        <Grid data={edges} featuredId={featured.id} isHomePage />
+        <Grid data={edges} featuredId={featured.node.id} isHomePage />
       </PostsWrapper>
   }
 }
