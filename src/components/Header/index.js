@@ -4,6 +4,9 @@ import PropTypes from 'prop-types'
 import styled, { extend } from 'styled-components'
 import Logo from '../logo'
 
+// Add back when you change the featured image
+// color: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
+
 const HeaderWrapper = styled.div`
   position: ${props => (props.isAbsolute ? 'absolute' : 'relative')};
   width: 100%;
@@ -18,7 +21,7 @@ const HeaderWrapper = styled.div`
   }
 `
 const Branding = styled.div`
-  color: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
+  color: var(--grey);
 `
 
 const Slogan = styled.div`
