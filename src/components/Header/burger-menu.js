@@ -4,6 +4,9 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 
+// Add back when you change the featured
+// background: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
+
 const MenuWrapper = styled.div`
   position: absolute;
   margin-top: var(--spacing);
@@ -22,7 +25,7 @@ const MenuWrapper = styled.div`
     padding: var(--big-spacing);
   }
   .bm-burger-bars {
-    background: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
+    background: var(--grey)
   }
 `
 const MenuItem = styled.span`

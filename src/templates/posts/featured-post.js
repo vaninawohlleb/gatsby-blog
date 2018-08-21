@@ -23,7 +23,8 @@ const PostBody = styled.div`
   display: flex;
   flex-direction: column;
   padding: var(--spacing);
-  color: white;
+  // color: white;
+  color: var(--grey)
   max-width: 800px;
 
   > a {
@@ -32,6 +33,7 @@ const PostBody = styled.div`
 
   h1 {
     font-size: 2.5rem;
+    color: var(--grey)
   }
 
   @media (min-width: 700px) {
