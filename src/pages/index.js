@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import styled, { extend } from 'styled-components'
+import Helmet from 'react-helmet'
 
 import FeaturedPost from '../templates/posts/featured-post'
 import Post from '../templates/posts/post'
 import Grid from '../layouts/grid'
+import favicon from '../assets/bunnymoji.png'
 
 const PostsWrapper = styled.div`
 
@@ -28,8 +30,8 @@ class IndexPage extends React.Component {
     const { edges } = this.props.data.allContentfulPost
     const category = this.props.data.contentfulCategory
     const featured = edges.find(({ node }) => node.featuredPost == true)
-    console.log(featured.node.id)
     return <PostsWrapper>
+        <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
         {/* Featured Post */}
         {featured && <BGRWrapper>
           <FeaturedPost post={featured} key={featured.node.id} />

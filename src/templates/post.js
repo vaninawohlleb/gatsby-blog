@@ -5,7 +5,9 @@ import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 // import InstagramEmbed from 'react-instagram-embed'
-let InnerHTML;
+let InnerHTML
+import Helmet from 'react-helmet'
+import favicon from '../assets/bunnymoji.png'
 
 if (typeof window !== `undefined`) {
   InnerHTML = require('script-inner-html')
@@ -101,6 +103,7 @@ const PostPage = ({data}) => {
   const date = moment(`${post.updatedAt}`).format('DD MMMM')
  
   return <SinglePost>
+      <Helmet title={post.title.title} meta={[{ name: 'description', content: post.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
       {post.featuredImage && <ImgWrapper>
           <img src={post.featuredImage.file.url} />
         </ImgWrapper>}
@@ -137,6 +140,7 @@ export const postQuery = graphql`
       title {
         title
       }
+      summary
       body {
         childMarkdownRemark {
           html
