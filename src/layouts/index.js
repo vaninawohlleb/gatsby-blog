@@ -1,10 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
 import { injectGlobal } from 'styled-components'
 import '../assets/fa/css/fontawesome.min.css'
 import '../assets/fa/css/fa-brands.min.css'
-import favicon from '../assets/bunnymoji.png'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -201,7 +199,6 @@ injectGlobal`
 `
 const TemplateWrapper = ({ data, children, location }) => {
   return <div id="outer-container">
-      <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
       <Header data={data} location={location} />
       <div id="page-wrap">
         <div>{children()}</div>
