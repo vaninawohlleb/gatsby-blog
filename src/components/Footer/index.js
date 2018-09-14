@@ -8,7 +8,7 @@ const FooterWrapper = styled.div`
   display: flex;
   justify-items: center;
   padding: 5rem 0;
-  background: var(--purple);
+  background: var(--blue);
   flex-direction: column;
 
   @media (min-width: 900px) {
@@ -63,7 +63,7 @@ const Footer = ({ data }) => (
           </Social>
         </a>
       </Socials>
-      <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank">gatsby</a>, <a href="https://www.contentful.com/" target="_blank">contentful</a>, and <a href="https://www.netlify.com/" target="_blank">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank">git</a></p>
+      <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank">gatsby</a>, <a href="https://www.contentful.com/" target="_blank">contentful</a>, and <a href="https://www.netlify.com/" target="_blank">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank">github</a></p>
     </FooterWidget>
     <FooterWidget>
       <p>I am always interested in collaborations. If you feel you have things to
