@@ -18,6 +18,7 @@
     "moment": "^2.22.0",
     "react-burger-menu": "^2.2.3",
     "react-helmet": "^5.2.0",
+    "react-reveal": "^1.2.2",
     "script-inner-html": "^2.0.4",
     "styled-components": "^2.4.0"
   },

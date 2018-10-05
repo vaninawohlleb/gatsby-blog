@@ -1,10 +1,9 @@
 import React, { Component } from 'react'
-import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
-import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
-import moment from 'moment'
-// import InstagramEmbed from 'react-instagram-embed'
+import Fade from 'react-reveal/Fade';
+import Reveal from 'react-reveal/Reveal';
+
 let InnerHTML
 import Helmet from 'react-helmet'
 import favicon from '../assets/bunnymoji.png'
@@ -13,10 +12,6 @@ if (typeof window !== `undefined`) {
   InnerHTML = require('script-inner-html')
 }
 const Special = styled.div`
-  text-align: center;
-`
-
-const H1 = styled.h1`
   text-align: center;
 `
 
@@ -33,64 +28,42 @@ const SpecialBody = styled.div`
   p,
   h3,
   h1 {
-    margin: 2rem 8rem;
-  }
+    margin: 2rem;
 
-  blockquote {
-    font-size: 17px;
-    border: 5px transparent solid;
-    border-image: linear-gradient(
-      to right,
-      #1e2ad2 10%,
-      #ee9ae5 100%,
-      #1e2ad2 10%,
-      #ee9ae5 100%
-    );
-    border-image-slice: 1;
-    text-transform: uppercase;
-    color: #1e2ad2;
-    font-weight: 700;
-    margin: 1.3rem;
-
-    @media (min-width: 520px) {
-      padding: var(--big-spacing);
+    @media(min-width: 600px) {
+      margin: 2rem 4rem;
     }
-  }
 
-  blockquote {
-    * {
-      &:last-child {
-        margin-bottom: 1.57rem;
-      }
+    @media(min-width: 850px) {
+      margin: 2rem 8rem;
     }
   }
 
   a,
   h3 {
-    color: var(--purple);
+    color: var(--blue);
   }
 `
 
 const SpecialCard = styled.div`
   display: flex;
-  padding: 12.5% 0;
+  padding: 11% 0;
   text-align: initial;
 
   &:first-child {
-    // border: 10px solid var(--blue);
-    border: 10px transparent solid;
-    border-image: linear-gradient(
-      to left,
-      #1e2ad2 10%,
-      #755FD8 100%,
-      #1e2ad2 10%,
-      #755FD8 100%
-    );
-    border-image-slice: 1;
+    border: 15px solid var(--blue);
 
     p {
-      font-size: 1.7em;
+      font-size: 1.1em;
       line-height: 1.6;
+
+      @media (min-width: 600px) {
+        font-size: 1.7em;
+      }
+    }
+
+    > div {
+      width: 100%;
     }
   }
 
@@ -99,36 +72,38 @@ const SpecialCard = styled.div`
     color: white;
 
     a {
-      color: #6bf4a9;
+      color: #FBFF12;
     }
 
     p {
-      font-size: 1.7em;
+      font-size: 1.1em;
       line-height: 1.6;
+
+      @media (min-width: 600px) {
+        font-size: 1.7em;
+      }
     }
   }
 
   &:nth-child(3) {
-    border: 10px transparent solid;
-    border-image: linear-gradient(
-      to right,
-      #1e2ad2 5%,
-      #6bf4a9 100%,
-      #1e2ad2 100%,
-      #6bf4a9 100%
-    );
-    border-image-slice: 1;
-
     p {
-      font-size: 1.3em;
+      font-size: 1.1em;
+
+      @media (min-width: 600px) {
+        font-size: 1.3em;
+      }
     }
   }
 
   &:nth-child(4) {
-    background: #6bf4a9;
+    background: #FBFF12;
 
     p {
-      font-size: 1.3em;
+      font-size: 1.1em;
+
+      @media (min-width: 600px) {
+        font-size: 1.3em;
+      }
     }
 
     span {
@@ -144,36 +119,72 @@ const SpecialCard = styled.div`
     padding: 12.5% 0 0;
     margin-bottom: -10%;
     z-index: 1;
-    font-size: 1.3em;
-    border-top: 10px solid #755FD8;
+    border: 14px solid var(--blue);
+
+    p {
+      font-size: 1.1em;
+
+      @media (min-width: 600px) {
+        font-size: 1.3em;
+      }
+    }
 
     .photos {
-      max-width: 1400px;
       width: 100%;
       overflow: hidden;
       margin: var(--big-spacing) auto 0;
       padding: 10px;
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(620px, 2fr));
+      // grid-template-columns: 100% 100%;
       grid-gap: var(--spacing);
 
       @media (min-width: 480px) {
         padding: var(--spacing) var(--spacing) 0;
       }
 
+      @media (min-width: 850px) {
+        grid-template-columns: 49% 49%;
+      }
+
       .photo-link {
+        background: var(--blue);
+        border-top: 5px solid transparent;
+        a {
+          span {
+            position: absolute;
+            margin: 5rem 2rem;
+            font-size: 2rem;
+            color: #FBFF12;
+            z-index: 1;
+            width: 350px;
+          }
+          img {
+            opacity: 0.3;
+          }
+        }
+
+        &:hover {
+          border-top: 5px solid #FBFF12;
+        }
       }
     }
   }
 
   &:nth-child(6) {
-    font-size: 1.3em;
     background: var(--blue);
     color: white;
     border-bottom: 2px solid white;
 
     a {
-      color: #6bf4a9;
+      color: #FBFF12;
+    }
+
+    p {
+      font-size: 1.1em;
+
+      @media (min-width: 600px) {
+        font-size: 1.3em;
+      }
     }
 
     .video {
@@ -193,9 +204,13 @@ const SpecialCard = styled.div`
 
   h1 {
     color: var(--blue);
-    font-size: 4rem;
-    line-height: 1.2;
-    // font-family: 'Cousine', cursive;
+    font-size: 2.5rem;
+    line-height: 1;
+
+    @media (min-width: 600px) {
+      font-size: 4rem;
+      line-height: 1.2;
+    }
   }
 
   a {
@@ -207,20 +222,43 @@ const SpecialCard = styled.div`
 
 const SpecialPage = ({data}) => {
   const special = data.contentfulSpecial
-  const date = moment(`${special.updatedAt}`).format('DD MMMM')
  
   return <Special>
       <Helmet title={special.title} meta={[{ name: 'description', content: special.title}, 
       { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
       {typeof window !== 'undefined' && (
         <SpecialBody>
-            <SpecialCard><InnerHTML html={ special.bodyBlock1.childMarkdownRemark.html } /></SpecialCard>
-            <SpecialCard><InnerHTML html={ special.bodyBlock2.childMarkdownRemark.html } /></SpecialCard>
-            <SpecialCard><InnerHTML html={ special.bodyBlock3.childMarkdownRemark.html } /></SpecialCard>
+            <SpecialCard>
+              <Fade clear>
+                <InnerHTML html={ special.bodyBlock1.childMarkdownRemark.html } />
+              </Fade>
+            </SpecialCard>
+            <SpecialCard>
+              <Fade clear>
+                <InnerHTML html={ special.bodyBlock2.childMarkdownRemark.html } />
+              </Fade>  
+            </SpecialCard>
+            <SpecialCard>
+              <Fade clear>
+                <InnerHTML html={ special.bodyBlock3.childMarkdownRemark.html } />
+              </Fade>
+            </SpecialCard>
             {/* <SpecialCard><InnerHTML html={ special.bodyBlock4.childMarkdownRemark.html } /></SpecialCard> */}
-            <SpecialCard><InnerHTML html={ special.bodyBlock5.childMarkdownRemark.html } /></SpecialCard>
-            <SpecialCard><InnerHTML html={ special.bodyBlock6.childMarkdownRemark.html } /></SpecialCard>
-            <SpecialCard><InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } /></SpecialCard>
+            <SpecialCard>
+              <Fade clear>
+                <InnerHTML html={ special.bodyBlock5.childMarkdownRemark.html } />
+              </Fade>
+              </SpecialCard>
+            <SpecialCard>
+              <Fade bottom>
+                <InnerHTML html={ special.bodyBlock6.childMarkdownRemark.html } />
+              </Fade>    
+            </SpecialCard>
+            <SpecialCard>
+              <Fade bottom>
+                <InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } />
+              </Fade>    
+            </SpecialCard>
             {/* <SpecialCard><InnerHTML html={ special.bodyBlock8.childMarkdownRemark.html } /></SpecialCard> */}
         </SpecialBody>
       )}
