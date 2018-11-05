@@ -17,7 +17,7 @@ const GridWrapper = styled.div`
   grid-template-rows: auto;
 
   @media (min-width: 480px) {
-    padding: var(--big-spacing) var(--big-spacing) 0;
+    padding: var(--big-spacing) var(--big-spacing);
   }
 `
 
