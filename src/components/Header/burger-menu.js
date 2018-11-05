@@ -86,11 +86,11 @@ class BurgerMenu extends React.Component {
                     <h3>how to's</h3>
                   </MenuItem>
                 </Link> */}
-              <Link key="events" to="events">
+              {/* <Link key="events" to="events">
                 <MenuItem onClick={() => this.closeMenu()}>
                   <h3>events</h3>
                 </MenuItem>
-              </Link>
+              </Link> */}
 
               {/* Pages */}
               {pages.map(page => (
