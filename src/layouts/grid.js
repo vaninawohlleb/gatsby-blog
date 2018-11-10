@@ -41,7 +41,7 @@ const Grid = ({ data, isHomePage, featuredId }) => {
     
   const threePosts = isHomePage ? data
     .filter(({ node }) => node.id !== featuredId)
-    .slice(6, 9)
+    .slice(6, 12)
     : null
 
  
