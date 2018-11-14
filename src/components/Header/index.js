@@ -5,21 +5,20 @@ import styled, { extend } from 'styled-components'
 import Logo from '../logo'
 
 const HeaderWrapper = styled.div`
-  position: ${props => (props.isAbsolute ? 'absolute' : 'relative')};
+  position: ${props => ((props.isAbsolute || props.isSpecial) ? 'absolute' : 'relative')};
   width: 100%;
   z-index: 1;
-  padding: var(--spacing);
+  padding: ${props => (props.isSpecial ? '2em' : 'var(--spacing)')};
   display: flex;
   align-items: center;
   justify-content: space-between;
 
   @media (min-width: 700px) {
-    padding: var(--big-spacing);
+    padding: ${props => (props.isSpecial ? '2em' : 'var(--big-spacing)')};
   }
 `
 const Branding = styled.div`
   color: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
-
 `
 
 const Slogan = styled.div`
@@ -27,21 +26,22 @@ const Slogan = styled.div`
   display: none;
 
   @media (min-width: 700px) {
-    display: block;
+    display: ${props => (props.isSpecial ? 'none' : 'block')};;
   }
 `
 const Burger = styled.div`
-
+  display: ${props => (props.isSpecial ? 'none' : 'block')};
 `
 const Header = ({ data, location }) => {
   const isHomePage = location.pathname == '/' ? true : false;
-
-  return <HeaderWrapper isAbsolute={isHomePage}>
+  const isSpecial = location.pathname.includes('special') ? true : false;
+  
+  return <HeaderWrapper isAbsolute={isHomePage} isSpecial={isSpecial}>
       <Branding isWhite={isHomePage}>
-        <Logo isWhite={isHomePage} />
-        <Slogan>Exploring female sexuality</Slogan>
+        <Logo isWhite={isHomePage} isSpecial={isSpecial}/>
+        <Slogan isSpecial={isSpecial}>Exploring female sexuality</Slogan>
       </Branding>
-      <Burger>
+      <Burger isSpecial={isSpecial}>
         <BurgerMenu menu data={data} isWhite={isHomePage} />
       </Burger>
     </HeaderWrapper>}
