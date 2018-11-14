@@ -36,6 +36,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
       // Contenful Posts
       result.data.allContentfulPost.edges.map(({ node }) => {
         createPage({
+          // add primary topic before slug
           path: `/${node.slug}`,
           component: path.resolve('src/templates/post.js'),
           context: {

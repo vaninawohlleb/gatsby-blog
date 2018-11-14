@@ -10,6 +10,7 @@ const LogoWrapper = styled.h1`
   color: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
   opacity: ${props => (props.isSpecial ? '.5' : '1')};
 
+
   @media(min-width: 700px) {
     font-size: ${props => (props.isSpecial ? '2rem' : '4.3rem')};
   }

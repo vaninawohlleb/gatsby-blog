@@ -7,6 +7,7 @@ import PropTypes from 'prop-types'
 const PostWrapper = styled.div`
   width: 100%;
   overflow: hidden;
+  padding-bottom: 2rem;
   
   .gatsby-image-outer-wrapper {
     margin-bottom: 1rem;
