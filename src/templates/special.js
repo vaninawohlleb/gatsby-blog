@@ -227,36 +227,36 @@ const SpecialPage = ({data}) => {
       { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
       {typeof window !== 'undefined' && (
         <SpecialBody>
-          <SpecialCard>
-            {/* <Fade clear> */}
-              <InnerHTML html={ special.bodyBlock1.childMarkdownRemark.html } />
-            {/* </Fade> */}
-          </SpecialCard>
-          <SpecialCard>
-            {/* <Fade clear> */}
-              <InnerHTML html={ special.bodyBlock2.childMarkdownRemark.html } />
-            {/* </Fade>   */}
-          </SpecialCard>
-          <SpecialCard>
-            {/* <Fade clear> */}
-              <InnerHTML html={ special.bodyBlock3.childMarkdownRemark.html } />
-            {/* </Fade> */}
-          </SpecialCard>
-          <SpecialCard>
-            {/* <Fade clear> */}
-              <InnerHTML html={ special.bodyBlock5.childMarkdownRemark.html } />
-            {/* </Fade> */}
-          </SpecialCard>
-          <SpecialCard>
-            {/* <Fade bottom> */}
-              <InnerHTML html={ special.bodyBlock6.childMarkdownRemark.html } />
-            {/* </Fade>     */}
-          </SpecialCard>
-          {/* <SpecialCard>
-            {/* <Fade bottom> */}
-              {/* <InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } /> */}
-            {/* </Fade>     */}
-          {/* </SpecialCard> */}
+            <SpecialCard>
+              {/* <Fade clear> */}
+                <InnerHTML html={ special.bodyBlock1.childMarkdownRemark.html } />
+              {/* </Fade> */}
+            </SpecialCard>
+            <SpecialCard>
+              {/* <Fade clear> */}
+                <InnerHTML html={ special.bodyBlock2.childMarkdownRemark.html } />
+              {/* </Fade>   */}
+            </SpecialCard>
+            <SpecialCard>
+              {/* <Fade clear> */}
+                <InnerHTML html={ special.bodyBlock3.childMarkdownRemark.html } />
+              {/* </Fade> */}
+            </SpecialCard>
+            <SpecialCard>
+              {/* <Fade clear> */}
+                <InnerHTML html={ special.bodyBlock5.childMarkdownRemark.html } />
+              {/* </Fade> */}
+            </SpecialCard>
+            <SpecialCard>
+              {/* <Fade bottom> */}
+                <InnerHTML html={ special.bodyBlock6.childMarkdownRemark.html } />
+              {/* </Fade>     */}
+            </SpecialCard>
+            <SpecialCard>
+              {/* <Fade bottom> */}
+                <InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } />
+              {/* </Fade>     */}
+            </SpecialCard>
         </SpecialBody>
       )}
     </Special>
