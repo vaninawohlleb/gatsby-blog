@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled, { extend } from 'styled-components'
 import PropTypes from 'prop-types'
 import Fade from 'react-reveal/Fade';
-import Reveal from 'react-reveal/Reveal';
 
 let InnerHTML
 import Helmet from 'react-helmet'
@@ -243,7 +242,6 @@ const SpecialPage = ({data}) => {
                 <InnerHTML html={ special.bodyBlock3.childMarkdownRemark.html } />
               </Fade>
             </SpecialCard>
-            {/* <SpecialCard><InnerHTML html={ special.bodyBlock4.childMarkdownRemark.html } /></SpecialCard> */}
             <SpecialCard>
               <Fade clear>
                 <InnerHTML html={ special.bodyBlock5.childMarkdownRemark.html } />
@@ -259,7 +257,6 @@ const SpecialPage = ({data}) => {
                 <InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } />
               </Fade>    
             </SpecialCard>
-            {/* <SpecialCard><InnerHTML html={ special.bodyBlock8.childMarkdownRemark.html } /></SpecialCard> */}
         </SpecialBody>
       )}
     </Special>
