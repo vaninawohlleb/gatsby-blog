@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import styled, { extend } from 'styled-components'
 import PropTypes from 'prop-types'
-// import Fade from 'react-reveal/Fade';
+import Fade from 'react-reveal/Fade';
 
 let InnerHTML
 import Helmet from 'react-helmet'
@@ -228,34 +228,34 @@ const SpecialPage = ({data}) => {
       {typeof window !== 'undefined' && (
         <SpecialBody>
             <SpecialCard>
-              {/* <Fade clear> */}
+              <Fade clear>
                 <InnerHTML html={ special.bodyBlock1.childMarkdownRemark.html } />
-              {/* </Fade> */}
+              </Fade>
             </SpecialCard>
             <SpecialCard>
-              {/* <Fade clear> */}
+              <Fade clear>
                 <InnerHTML html={ special.bodyBlock2.childMarkdownRemark.html } />
-              {/* </Fade>   */}
+              </Fade>  
             </SpecialCard>
             <SpecialCard>
-              {/* <Fade clear> */}
+              <Fade clear>
                 <InnerHTML html={ special.bodyBlock3.childMarkdownRemark.html } />
-              {/* </Fade> */}
+              </Fade>
             </SpecialCard>
             <SpecialCard>
-              {/* <Fade clear> */}
+              <Fade clear>
                 <InnerHTML html={ special.bodyBlock5.childMarkdownRemark.html } />
-              {/* </Fade> */}
-            </SpecialCard>
+              </Fade>
+              </SpecialCard>
             <SpecialCard>
-              {/* <Fade bottom> */}
+              <Fade bottom>
                 <InnerHTML html={ special.bodyBlock6.childMarkdownRemark.html } />
-              {/* </Fade>     */}
+              </Fade>    
             </SpecialCard>
             <SpecialCard>
-              {/* <Fade bottom> */}
+              <Fade bottom>
                 <InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } />
-              {/* </Fade>     */}
+              </Fade>    
             </SpecialCard>
         </SpecialBody>
       )}
