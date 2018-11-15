@@ -248,12 +248,12 @@ const SpecialPage = ({data}) => {
               </Fade>
               </SpecialCard>
             <SpecialCard>
-              <Fade clear>
+              <Fade bottom>
                 <InnerHTML html={ special.bodyBlock6.childMarkdownRemark.html } />
               </Fade>    
             </SpecialCard>
             <SpecialCard>
-              <Fade bottom>
+              <Fade clear>
                 <InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } />
               </Fade>    
             </SpecialCard>
