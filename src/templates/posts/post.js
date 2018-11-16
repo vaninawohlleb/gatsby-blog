@@ -47,7 +47,7 @@ const Post = ({ post }) => {
 
   return <PostWrapper>
     {entryTypeSlug &&
-      <Link rel="canonical" to={entryTypeSlug}>
+      <Link to={entryTypeSlug}>
         <h4>{post.entryType}</h4>
       </Link>
     }
