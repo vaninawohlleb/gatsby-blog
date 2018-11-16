@@ -63,7 +63,7 @@ class BurgerMenu extends React.Component {
         {typeof window !== 'undefined' && window.location.href && <Menu right width={'300px'} isOpen={this.state.menuOpen} noOverlay onStateChange={state => this.handleStatechange(state)} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
               {/* Categories */}
               {categoriesWithoutFeatured.map(category => (
-                <Link key={category.node.id} to={category.node.slug}>
+                <Link rel="canonical" key={category.node.id} to={category.node.slug}>
                   <MenuItem onClick={() => this.closeMenu()}>
                     <h3>{category.node.title}</h3>
                   </MenuItem>
@@ -71,12 +71,12 @@ class BurgerMenu extends React.Component {
               ))}
 
               {/* Custom Links*/}
-              <Link key="who" to="whos-who">
+              <Link rel="canonical" key="who" to="whos-who">
                 <MenuItem onClick={() => this.closeMenu()}>
                   <h3>who's who</h3>
                 </MenuItem>
               </Link>
-              <Link key="what-is" to="what-is">
+              <Link rel="canonical" key="what-is" to="what-is">
                 <MenuItem onClick={() => this.closeMenu()}>
                   <h3>what is</h3>
                 </MenuItem>
@@ -94,7 +94,7 @@ class BurgerMenu extends React.Component {
 
               {/* Pages */}
               {pages.map(page => (
-                <Link key={page.node.id} to={page.node.slug}>
+                <Link rel="canonical" key={page.node.id} to={page.node.slug}>
                   <MenuItem onClick={() => this.closeMenu()}>
                     <h3>{page.node.title}</h3>
                   </MenuItem>

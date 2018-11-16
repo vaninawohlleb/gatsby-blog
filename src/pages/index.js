@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import styled, { extend } from 'styled-components'
 import Helmet from 'react-helmet'
 
 import FeaturedPost from '../templates/posts/featured-post'
-import Post from '../templates/posts/post'
 import Grid from '../layouts/grid'
 import favicon from '../assets/bunnymoji.png'
 
