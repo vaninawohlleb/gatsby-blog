@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import styled, { extend } from 'styled-components'
 import Helmet from 'react-helmet'

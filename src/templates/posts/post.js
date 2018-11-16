@@ -47,13 +47,13 @@ const Post = ({ post }) => {
 
   return <PostWrapper>
     {entryTypeSlug &&
-      <Link to={entryTypeSlug}>
+      <Link rel="canonical" to={entryTypeSlug}>
         <h4>{post.entryType}</h4>
       </Link>
     }
     {post.featuredImage && <Img resolutions={post.featuredImage.resolutions} className={entryTypeSlug === null ? 'margin' : ''}/>}
     <PostBody>
-      <Link to={post.slug}>
+      <Link rel="canonical" to={post.slug}>
         <h2>{post.title.title}</h2>
       </Link>
       {post.summary}
