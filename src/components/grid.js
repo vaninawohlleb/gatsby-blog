@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import styled, { extend } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import SubscribeWidget from '../components/subscribe-widget'
 

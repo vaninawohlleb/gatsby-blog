@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import styled, { extend } from 'styled-components'
 import PropTypes from 'prop-types'
 import Fade from 'react-reveal/Fade';
-
-let InnerHTML
+import Layout from '../components/layout'
 import Helmet from 'react-helmet'
 import favicon from '../assets/bunnymoji.png'
+let InnerHTML
 
 if (typeof window !== `undefined`) {
   InnerHTML = require('script-inner-html')
@@ -191,7 +191,7 @@ const SpecialCard = styled.div`
     }
 
     .gatsby-resp-iframe-wrapper {
-      padding-bottom: 50% !important;
+      padding-bottom: 50%;
     }
 
     p {
@@ -222,7 +222,8 @@ const SpecialCard = styled.div`
 const SpecialPage = ({data}) => {
   const special = data.contentfulSpecial
  
-  return <Special>
+  return <Layout>
+    <Special>
       <Helmet title={special.title} meta={[{ name: 'description', content: special.title}, 
       { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
       {typeof window !== 'undefined' && (
@@ -260,6 +261,7 @@ const SpecialPage = ({data}) => {
         </SpecialBody>
       )}
     </Special>
+  </Layout>
 }
 
 SpecialPage.propTypes = {

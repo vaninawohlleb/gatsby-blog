@@ -1,13 +1,11 @@
-import React, { Component } from 'react'
-import Img from 'gatsby-image'
-import styled, { extend } from 'styled-components'
-import Link from 'gatsby-link'
-import PropTypes from 'prop-types'
+import React from 'react'
+import styled from 'styled-components'
 import moment from 'moment'
-// import InstagramEmbed from 'react-instagram-embed'
-let InnerHTML
+import Layout from '../components/layout'
 import Helmet from 'react-helmet'
 import favicon from '../assets/bunnymoji.png'
+import { StaticQuery, graphql } from 'gatsby';
+let InnerHTML
 
 if (typeof window !== `undefined`) {
   InnerHTML = require('script-inner-html')
@@ -98,69 +96,65 @@ const Author = styled.a`
 const UpdatedAt = styled.span`
 
 `
-const PostPage = ({data}) => {
-  const post = data.contentfulPost
-  const date = moment(`${post.updatedAt}`).format('DD MMMM')
- 
-  return <SinglePost>
-      <Helmet title={post.title.title} meta={[{ name: 'description', content: post.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
-      {post.featuredImage && <ImgWrapper>
-          <img src={post.featuredImage.file.url} />
+export default () => (
+  <StaticQuery
+    query={graphql`
+      query($slug: String!){
+        contentfulPost(slug: { eq: $slug }) {
+          id
+          title {
+            title
+          }
+          summary
+          body {
+            childMarkdownRemark {
+              html
+            }
+          }
+          featuredImage{
+            file {
+              url
+              fileName
+            }
+            resolutions(width: 1200) {
+            ...GatsbyContentfulResolutions
+            }
+          }
+          author {
+            id
+            name
+            website
+          }
+          updatedAt
+        }
+      }
+    `
+  }
+  render={data=>(
+    <Layout>
+    <SinglePost>
+      <Helmet title={data.contentfulPost.title.title} meta={[{ name: 'description', content: data.contentfulPost.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
+      {data.contentfulPost.featuredImage && <ImgWrapper>
+          <img src={data.contentfulPost.featuredImage.file.url} />
         </ImgWrapper>}
       <Info>
-        <H1>{post.title.title}</H1>
+        <H1>{data.contentfulPost.title.title}</H1>
         <Meta>
-          {post.author.map(author => (
+          {data.contentfulPost.author.map(author => (
             <Author key={author.id} href={author.website}>
               by {author.name}
             </Author>
           ))}
-          {post.updatedAt && <UpdatedAt>{date}</UpdatedAt>}
+          {data.contentfulPost.updatedAt && <UpdatedAt>{moment(`${data.contentfulPost.updatedAt}`).format('DD MMMM')}</UpdatedAt>}
         </Meta>
       </Info>
       {typeof window !== 'undefined' && (
       <PostBody>
-        <InnerHTML html={ post.body.childMarkdownRemark.html } />
+        <InnerHTML html={ data.contentfulPost.body.childMarkdownRemark.html } />
       </PostBody>
       )}
     </SinglePost>
-}
-
-PostPage.propTypes = {
-  data: PropTypes.object,
-}
-
-export default PostPage
-
-// Query Contentful for content type Post
-export const postQuery = graphql`
-  query postQuery($slug: String!){
-    contentfulPost(slug: { eq: $slug }) {
-      id
-      title {
-        title
-      }
-      summary
-      body {
-        childMarkdownRemark {
-          html
-        }
-      }
-      featuredImage{
-        file {
-          url
-          fileName
-        }
-        resolutions(width: 1200) {
-         ...GatsbyContentfulResolutions
-        }
-      }
-      author {
-        id
-        name
-        website
-      }
-      updatedAt
-    }
-  }
-`
+  </Layout>
+  )}
+  />
+)
