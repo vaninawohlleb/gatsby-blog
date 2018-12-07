@@ -78,25 +78,25 @@ const PostBody = styled.div`
     padding: 2rem;
   }
 
-  & .post__PostBody - zb1l64 - 3, &
+  &.post__PostBody-zb1l64-3, &
     .kIxHOy {
-      max - width: 100 % ;
+      max-width: 100%;
 
       p, h3, blockquote {
-        max - width: 1025 px;
-        margin: 1.5 rem auto;
-        padding: 1 rem;
+        max-width: 1025px;
+        margin: 1.5rem auto;
+        padding: 1rem;
       }
 
       p, h3 {
-        @media(min - width: 1000 px) {
+        @media(min-width:1000 px) {
           padding: 0;
         }
       }
 
       blockquote {
-        @media(min - width: 1000 px) {
-          padding: 2 rem;
+        @media(min-width: 1000px) {
+          padding: 2rem;
         }
       }
     }
