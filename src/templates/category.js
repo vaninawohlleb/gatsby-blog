@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import styled, { extend } from 'styled-components'
-import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 
 import Post from './posts/post'

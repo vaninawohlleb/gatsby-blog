@@ -5,7 +5,9 @@ import Link from 'gatsby-link'
 import PropTypes from 'prop-types'
 import moment from 'moment'
 // import InstagramEmbed from 'react-instagram-embed'
-let InnerHTML;
+let InnerHTML
+import Helmet from 'react-helmet'
+import favicon from '../assets/bunnymoji.png'
 
 if (typeof window !== `undefined`) {
   InnerHTML = require('script-inner-html')
@@ -74,32 +76,33 @@ const PostBody = styled.div`
     color: var(--purple);
   }
 
-  @media (min-width: 520px) {
+  @media(min - width: 520 px) {
     padding: 2rem;
   }
 
-  &.post__PostBody-zb1l64-3, &
-    .kIxHOy {
-      max-width: 100%;
+  &.post__PostBody-zb1l64-3,
+  &.kIxHOy {
+    max-width: 100%;
+    
+    p, h3, blockquote {
+      max-width: 1025px;
+      margin: 1.5rem auto;
+      padding: 1rem;
+    }
 
-      p, h3, blockquote {
-        max-width: 1025px;
-        margin: 1.5rem auto;
-        padding: 1rem;
-      }
-
-      p, h3 {
-        @media(min-width:1000 px) {
-          padding: 0;
-        }
-      }
-
-      blockquote {
-        @media(min-width: 1000px) {
-          padding: 2rem;
-        }
+    p, h3 {
+      @media(min-width: 1000px) {
+        padding: 0;
       }
     }
+
+    blockquote {
+      @media(min-width: 1000px) {
+        padding: 2rem;
+      }
+    }
+  }
+  
 `
 const Info = styled.div`
   max-width: 1025px;
@@ -122,10 +125,11 @@ const UpdatedAt = styled.span`
 const PostPage = ({data}) => {
   const post = data.contentfulPost
   const date = moment(`${post.updatedAt}`).format('DD MMMM')
-
+ 
   return <SinglePost>
+      <Helmet title={post.title.title} meta={[{ name: 'description', content: post.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
       {post.featuredImage && <ImgWrapper>
-          <Img resolutions={post.featuredImage.resolutions} />
+          <img src={post.featuredImage.file.url} />
         </ImgWrapper>}
       <Info>
         <H1>{post.title.title}</H1>
@@ -160,6 +164,7 @@ export const postQuery = graphql`
       title {
         title
       }
+      summary
       body {
         childMarkdownRemark {
           html

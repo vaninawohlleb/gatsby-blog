@@ -52,12 +52,13 @@ const Summary = styled.div`
   }
 `
 const FeaturedPost = ({ post }) => {
-  return <FeaturedPostWrapper img={post.featuredImage.file.url}>
+
+  return <FeaturedPostWrapper img={post.node.featuredImage.file.url}>
       <PostBody>
-        <Link to={post.slug}>
-          <h1>{post.title.title}</h1>
+        <Link rel="canonical" to={post.node.slug}>
+          <h1>{post.node.title.title}</h1>
         </Link>
-       <Summary>{post.summary}</Summary>
+       <Summary>{post.node.summary}</Summary>
       </PostBody>
     </FeaturedPostWrapper>
 }

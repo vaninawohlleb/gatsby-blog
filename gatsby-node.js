@@ -23,12 +23,20 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             }
           }
         }
+        allContentfulSpecial {
+          edges {
+            node {
+              slug
+            }
+          }
+        }
       }
     `).then(result => {
 
       // Contenful Posts
       result.data.allContentfulPost.edges.map(({ node }) => {
         createPage({
+          // add primary topic before slug
           path: `/${node.slug}`,
           component: path.resolve('src/templates/post.js'),
           context: {
@@ -62,6 +70,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
             },
           })
         }
+      })
+
+      // Contenful Specials
+      result.data.allContentfulSpecial.edges.map(({ node }) => {
+        createPage({
+          path: `/${node.slug}`,
+          component: path.resolve('src/templates/special.js'),
+          context: {
+            slug: node.slug
+          },
+        })
       })
       
       resolve()

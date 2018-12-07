@@ -14,10 +14,10 @@ const GridWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 3fr));
   grid-gap: var(--big-spacing);
-  grid-template-rows: auto auto 100% auto;
+  grid-template-rows: auto;
 
   @media (min-width: 480px) {
-    padding: var(--big-spacing) var(--big-spacing) 0;
+    padding: var(--big-spacing) var(--big-spacing);
   }
 `
 
@@ -41,7 +41,7 @@ const Grid = ({ data, isHomePage, featuredId }) => {
     
   const threePosts = isHomePage ? data
     .filter(({ node }) => node.id !== featuredId)
-    .slice(6, 9)
+    .slice(6, 12)
     : null
 
  
