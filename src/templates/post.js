@@ -76,9 +76,33 @@ const PostBody = styled.div`
     color: var(--purple);
   }
 
-  @media (min-width: 520px) {
+  @media(min - width: 520 px) {
     padding: 2rem;
   }
+
+  &.post__PostBody-zb1l64-3,
+  &.kIxHOy {
+    max-width: 100%;
+    
+    p, h3, blockquote {
+      max-width: 1025px;
+      margin: 1.5rem auto;
+      padding: 1rem;
+    }
+
+    p, h3 {
+      @media(min-width: 1000px) {
+        padding: 0;
+      }
+    }
+
+    blockquote {
+      @media(min-width: 1000px) {
+        padding: 2rem;
+      }
+    }
+  }
+  
 `
 const Info = styled.div`
   max-width: 1025px;
