@@ -76,7 +76,7 @@ const PostBody = styled.div`
     color: var(--purple);
   }
 
-  @media(min - width: 520 px) {
+  @media(min-width: 520px) {
     padding: 2rem;
   }
 
