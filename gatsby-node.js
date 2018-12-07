@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: `/${node.slug}`,
           component: path.resolve('src/templates/post.js'),
           context: {
-            slug: node.slug
+            slug: 'lalallala'
           },
         })
       })
@@ -74,6 +74,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       // Contenful Specials
       result.data.allContentfulSpecial.edges.map(({ node }) => {
+        // console.log(node.slug)
         createPage({
           path: `/${node.slug}`,
           component: path.resolve('src/templates/special.js'),
