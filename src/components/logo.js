@@ -7,12 +7,12 @@ const LogoWrapper = styled.h1`
   font-size: ${props => (props.isSpecial ? '1.5rem' : '3.3rem')};
   font-weight: 900;
   margin: 0;
-  color: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
-  opacity: ${props => (props.isSpecial ? '.5' : '1')};
+  color: ${props => ((props.isWhite || props.isSpecial) ? 'white' : 'var(--grey)')};
+  opacity: ${props => (props.isSpecial ? '.7' : '1')};
 
 
   @media(min-width: 700px) {
-    font-size: ${props => (props.isSpecial ? '2rem' : '4.3rem')};
+    font-size: ${props => (props.isSpecial ? '2.7rem' : '4.3rem')};
   }
 `
 

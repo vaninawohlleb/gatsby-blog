@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import styled, { extend } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Fade from 'react-reveal/Fade';
 
@@ -51,6 +51,7 @@ const SpecialCard = styled.div`
 
   &:first-child {
     border: 15px solid var(--blue);
+    padding: 0 0 11%;
 
     p {
       font-size: 1.1em;
@@ -63,6 +64,10 @@ const SpecialCard = styled.div`
 
     > div {
       width: 100%;
+    }
+
+    img {
+      padding-bottom: 11%;
     }
   }
 
@@ -91,6 +96,13 @@ const SpecialCard = styled.div`
       @media (min-width: 600px) {
         font-size: 1.3em;
       }
+    }
+
+    padding: 11% 0 0;
+
+    img {
+      padding-top: 11%;
+      margin-bottom: 0;
     }
   }
 
