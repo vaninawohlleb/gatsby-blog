@@ -3,8 +3,8 @@ import Grid from '../../components/grid'
 import PropTypes from 'prop-types'
 import Layout from '../../components/layout'
 
-const Entry = ({ data }) => (
-  <Layout>
+const Entry = ({ data, location }) => (
+  <Layout location={location}>
     <Grid data={data.allContentfulPost.edges} isHomePage />
   </Layout>
 )

@@ -1,7 +1,7 @@
 import React from 'react'
 import BurgerMenu from './burger-menu'
 import PropTypes from 'prop-types'
-import styled, { extend } from 'styled-components'
+import styled from 'styled-components'
 import Logo from '../logo'
 
 const HeaderWrapper = styled.div`
@@ -33,8 +33,9 @@ const Burger = styled.div`
   display: ${props => (props.isSpecial ? 'none' : 'block')};
 `
 const Header = ({ data, location }) => {
-  const isHomePage = location.pathname == '/' ? true : false;
-  const isSpecial = location.pathname.includes('special') ? true : false;
+  console.log(location)
+  const isHomePage = location === '/' ? true : false;
+  const isSpecial = location.includes('special') ? true : false;
   
   return <HeaderWrapper isAbsolute={isHomePage} isSpecial={isSpecial}>
       <Branding isWhite={isHomePage}>
@@ -48,7 +49,7 @@ const Header = ({ data, location }) => {
 
 Header.propTypes = {
   data: PropTypes.object,
-  location: PropTypes.object
+  location: PropTypes.string
 }
 
 export default Header

@@ -1,8 +1,8 @@
 const path = require('path')
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
-  const { createRedirect } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  const { createRedirect } = actions
 
   return new Promise((resolve, reject) => {
     graphql(`
@@ -40,7 +40,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           path: `/${node.slug}`,
           component: path.resolve('src/templates/post.js'),
           context: {
-            slug: 'lalallala'
+            slug: node.slug
           },
         })
       })
@@ -74,7 +74,6 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
       // Contenful Specials
       result.data.allContentfulSpecial.edges.map(({ node }) => {
-        // console.log(node.slug)
         createPage({
           path: `/${node.slug}`,
           component: path.resolve('src/templates/special.js'),

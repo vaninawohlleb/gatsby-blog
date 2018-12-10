@@ -40,10 +40,10 @@ export default ({
       }
     `}
     render={data=>(
-      <div id = "outer-container" >
-        <Header data={data} location={location} />
+      <div id="outer-container" location={location.pathname}>
+        <Header data={data} location={location.pathname} />
         <div id="page-wrap">
-          <div>{children}</div>
+          <div location={location.pathname}>{children}</div>
         </div>
         <Footer data={data} />
     </div>

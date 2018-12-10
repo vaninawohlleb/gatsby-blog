@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+import React from 'react'
 import EntryTypes from './entry-types/entry'
+import { graphql } from 'gatsby'
 
 export default ({ data }) => {
   return <EntryTypes data={data} />
@@ -17,8 +18,8 @@ export const whoswhoQuery = graphql`
           slug
           summary
           featuredImage {
-            resolutions(width: 700) {
-              ...GatsbyContentfulResolutions
+            fluid(maxHeight: 650) {
+              ...GatsbyContentfulFluid
             }
           }
         }

@@ -1,11 +1,12 @@
-import React, { Component } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { extend } from 'styled-components'
+import styled from 'styled-components'
 import Helmet from 'react-helmet'
 import Layout from '../components/layout'
 import FeaturedPost from '../templates/posts/featured-post'
 import Grid from '../components/grid'
 import favicon from '../assets/bunnymoji.png'
+import { graphql } from 'gatsby'
 
 const PostsWrapper = styled.div`
 
@@ -26,9 +27,11 @@ class IndexPage extends React.Component {
 
   render() {
     const { edges } = this.props.data.allContentfulPost
-    const category = this.props.data.contentfulCategory
-    const featured = edges.find(({ node }) => node.featuredPost == true)
-    return <Layout>
+    const featured = edges.find(({ node }) => node.featuredPost === true)
+    const { location } = this.props
+
+    console.log(location)
+    return <Layout location={location}>
       <PostsWrapper>
         <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
         {/* Featured Post */}
@@ -64,8 +67,8 @@ export const contentQuery = graphql`
               url
               fileName
             }
-            resolutions(width: 700) {
-            ...GatsbyContentfulResolutions
+            fluid(maxHeight: 650) {
+            ...GatsbyContentfulFluid
             }
           }
 
@@ -75,19 +78,6 @@ export const contentQuery = graphql`
             website
           }
         }
-      }
-    }
-
-    contentfulCategory(id: {eq: "c29K62kBmPyq8O2EciGaKyE"}) {
-      id
-      title
-      posts {
-        id
-        updatedAt
-        title {
-          title
-        }
-        slug
       }
     }
   }

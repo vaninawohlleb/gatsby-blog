@@ -1,7 +1,6 @@
-import React, { Component } from 'react'
-import Img from 'gatsby-image'
-import styled, { extend } from 'styled-components'
-import Link from 'gatsby-link'
+import React from 'react'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 const FeaturedPostWrapper = styled.div`
@@ -52,7 +51,6 @@ const Summary = styled.div`
   }
 `
 const FeaturedPost = ({ post }) => {
-
   return <FeaturedPostWrapper img={post.node.featuredImage.file.url}>
       <PostBody>
         <Link rel="canonical" to={post.node.slug}>

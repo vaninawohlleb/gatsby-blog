@@ -98,6 +98,4 @@ const typography = new Typography({
   }),
 })
 
-
-
-export default typography
+export { typography as default };

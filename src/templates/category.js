@@ -1,11 +1,10 @@
-import React, { Component } from 'react'
-import Img from 'gatsby-image'
-import styled, { extend } from 'styled-components'
-import Link from 'gatsby-link'
+import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
 
-import Post from './posts/post'
-import Grid from '../layouts/grid'
+import Grid from '../components/grid'
 
 const H1BoldStyled = styled.h1`
   text-align: center;
@@ -15,12 +14,14 @@ const Category = styled.div`
 
 `
 
-const CategoryPage = ({data}) => {
+const CategoryPage = ({data, location}) => {
   const category = data.contentfulCategory
-  return <Category>
-    <H1BoldStyled>{category.title}</H1BoldStyled>
-    <Grid data={category.posts} isHomePage={false} />
-  </Category>
+  return <Layout location={location}>
+    <Category>
+      <H1BoldStyled>{category.title}</H1BoldStyled>
+      <Grid data={category.posts} isHomePage={false} />
+    </Category>
+  </Layout>
 }
 
 CategoryPage.propTypes = {
@@ -43,8 +44,8 @@ export const categoryQuery = graphql`
         slug
         summary
         featuredImage{
-          resolutions(width: 700) {
-          ...GatsbyContentfulResolutions
+          fluid(maxHeight: 650) {
+          ...GatsbyContentfulFluid
           }
         }
         author {

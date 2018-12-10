@@ -1,15 +1,12 @@
-import React, { Component } from 'react'
-import styled, { extend } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Fade from 'react-reveal/Fade';
 import Layout from '../components/layout'
 import Helmet from 'react-helmet'
 import favicon from '../assets/bunnymoji.png'
-let InnerHTML
+import { graphql } from 'gatsby'
 
-if (typeof window !== `undefined`) {
-  InnerHTML = require('script-inner-html')
-}
 const Special = styled.div`
   text-align: center;
 `
@@ -219,10 +216,10 @@ const SpecialCard = styled.div`
 
 `
 
-const SpecialPage = ({data}) => {
+const SpecialPage = ({data, location}) => {
   const special = data.contentfulSpecial
  
-  return <Layout>
+  return <Layout location={location}>
     <Special>
       <Helmet title={special.title} meta={[{ name: 'description', content: special.title}, 
       { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
@@ -230,32 +227,32 @@ const SpecialPage = ({data}) => {
         <SpecialBody>
             <SpecialCard>
               <Fade clear>
-                <InnerHTML html={ special.bodyBlock1.childMarkdownRemark.html } />
+                <div dangerouslySetInnerHTML={{ __html:special.bodyBlock1.childMarkdownRemark.html }} />
               </Fade>
             </SpecialCard>
             <SpecialCard>
               <Fade clear>
-                <InnerHTML html={ special.bodyBlock2.childMarkdownRemark.html } />
+                <div dangerouslySetInnerHTML={{ __html:special.bodyBlock2.childMarkdownRemark.html }} />
               </Fade>  
             </SpecialCard>
             <SpecialCard>
               <Fade clear>
-                <InnerHTML html={ special.bodyBlock3.childMarkdownRemark.html } />
+                <div dangerouslySetInnerHTML={{ __html:special.bodyBlock3.childMarkdownRemark.html }} />
               </Fade>
             </SpecialCard>
             <SpecialCard>
               <Fade clear>
-                <InnerHTML html={ special.bodyBlock5.childMarkdownRemark.html } />
+                <div dangerouslySetInnerHTML={{ __html:special.bodyBlock4.childMarkdownRemark.html }} />
               </Fade>
               </SpecialCard>
             <SpecialCard>
               <Fade bottom>
-                <InnerHTML html={ special.bodyBlock6.childMarkdownRemark.html } />
+                <div dangerouslySetInnerHTML={{ __html:special.bodyBlock6.childMarkdownRemark.html }} />
               </Fade>    
             </SpecialCard>
             <SpecialCard>
               <Fade clear>
-                <InnerHTML html={ special.bodyBlock7.childMarkdownRemark.html } />
+                <div dangerouslySetInnerHTML={{ __html:special.bodyBlock7.childMarkdownRemark.html }} />
               </Fade>    
             </SpecialCard>
         </SpecialBody>
