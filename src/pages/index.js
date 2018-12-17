@@ -30,7 +30,6 @@ class IndexPage extends React.Component {
     const category = this.props.data.contentfulCategory
     const featured = specials.find(({ node }) => node.featuredPost == true)
 
-    console.log(specials)
     return <PostsWrapper>
         <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
         {/* Featured Post */}
