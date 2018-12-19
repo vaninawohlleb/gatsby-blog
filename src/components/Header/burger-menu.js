@@ -57,7 +57,8 @@ class BurgerMenu extends React.Component {
   render() {
     const categories = this.props.data.allContentfulCategory.edges
     const pages = this.props.data.allContentfulPage.edges
-    const categoriesWithoutFeatured = categories.filter(({node}) => node.id !== 'c29K62kBmPyq8O2EciGaKyE');
+    const categoriesWithoutFeatured = categories.filter(({node}) => node.id !== '45c8015a-dc2e-5a1c-a40b-3f7442606aca');
+    console.log(categoriesWithoutFeatured);
 
     return <MenuWrapper isWhite={this.props.isWhite}>
         {typeof window !== 'undefined' && window.location.href && <Menu right width={'300px'} isOpen={this.state.menuOpen} noOverlay onStateChange={state => this.handleStatechange(state)} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>

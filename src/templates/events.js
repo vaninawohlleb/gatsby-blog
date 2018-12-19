@@ -2,8 +2,8 @@ import React from 'react'
 import EntryTypes from './entry-types/entry'
 import { graphql } from 'gatsby'
 
-export default ({ data }) => {
-  return <EntryTypes data={data} />
+export default ({ data, location }) => {
+  return <EntryTypes data={data} location={location} />
 }
 
 export const eventsQuery = graphql`
