@@ -46,12 +46,12 @@ const Footer = ({ data }) => (
     <FooterWidget>
       <Logo isWhite />
       <Socials>
-        <a href="https://twitter.com/sluttishmedia">
+        <a href="https://twitter.com/sluttishmedia" target="_blank" rel="noopener noreferrer">
           <Social>
             <i className="fab fa-twitter" />
           </Social>
         </a>
-        <a href="https://instagram.com/sluttish__">
+        <a href="https://instagram.com/sluttish__" target="_blank" rel="noopener noreferrer">
           <Social>
             <i className="fab fa-instagram" />
           </Social>

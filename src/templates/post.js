@@ -80,7 +80,7 @@ const PostBody = styled.div`
     padding: 2rem;
   }
 
-  &.post__PostBody-zb1l64-3,
+  &.ejAkAZ,
   &.kIxHOy {
     max-width: 100%;
     
