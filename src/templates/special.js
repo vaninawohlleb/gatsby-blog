@@ -282,7 +282,7 @@ const SpecialPage = ({data, location}) => {
               </Fade>    
             </SpecialCard>
              <SpecialCard>
-              <InnerHTML html={ special.bodyBlock8.childMarkdownRemark.html } />  
+              <div dangerouslySetInnerHTML={{ __html:special.bodyBlock8.childMarkdownRemark.html }} /> 
             </SpecialCard>
         </SpecialBody>
       )}
