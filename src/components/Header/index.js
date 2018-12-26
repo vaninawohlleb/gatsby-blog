@@ -33,7 +33,6 @@ const Burger = styled.div`
   display: ${props => (props.isSpecial ? 'none' : 'block')};
 `
 const Header = ({ data, location }) => {
-  console.log(location)
   const isHomePage = location === '/' ? true : false;
   const isSpecial = location.includes('special') ? true : false;
   

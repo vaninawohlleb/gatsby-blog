@@ -40,10 +40,10 @@ export default ({
       }
     `}
     render={data=>(
-      <div id="outer-container" location={location.pathname}>
-        <Header data={data} location={location.pathname} />
+      <div id="outer-container" location={location ? location.pathname : '/'}>
+        <Header data={data} location={location ? location.pathname : '/'} />
         <div id="page-wrap">
-          <div location={location.pathname}>{children}</div>
+          <div location={location ? location.pathname : '/'}>{children}</div>
         </div>
         <Footer data={data} />
     </div>

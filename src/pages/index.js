@@ -20,15 +20,9 @@ const BGRWrapper = styled.div`
     height: 750px;
   }
 `
-class IndexPage extends React.Component {
-  static propTypes = {
-    data: PropTypes.object,
-  }
-
-  render() {
-    const { edges } = this.props.data.allContentfulPost
-    const featured = edges.find(({ node }) => node.featuredPost === true)
-    const { location } = this.props
+const IndexPage = ({data, location}) => {
+  const { edges } = data.allContentfulPost
+  const featured = edges.find(({ node }) => node.featuredPost === true)
 
     return <Layout location={location}>
       <PostsWrapper>
@@ -41,6 +35,9 @@ class IndexPage extends React.Component {
       </PostsWrapper>
     </Layout>
   }
+
+IndexPage.propTypes = {
+  data: PropTypes.object
 }
 
 export default IndexPage
