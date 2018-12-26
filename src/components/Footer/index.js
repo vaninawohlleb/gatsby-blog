@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styled, { extend } from 'styled-components'
+import styled from 'styled-components'
 import Logo from '../logo'
 
 const FooterWrapper = styled.div`
@@ -46,12 +46,12 @@ const Footer = ({ data }) => (
     <FooterWidget>
       <Logo isWhite />
       <Socials>
-        <a href="https://twitter.com/sluttishmedia">
+        <a href="https://twitter.com/sluttishmedia" target="_blank" rel="noopener noreferrer">
           <Social>
             <i className="fab fa-twitter" />
           </Social>
         </a>
-        <a href="https://instagram.com/sluttish__">
+        <a href="https://instagram.com/sluttish__" target="_blank" rel="noopener noreferrer">
           <Social>
             <i className="fab fa-instagram" />
           </Social>
@@ -62,7 +62,7 @@ const Footer = ({ data }) => (
           </Social>
         </a>
       </Socials>
-      <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank">gatsby</a>, <a href="https://www.contentful.com/" target="_blank">contentful</a>, and <a href="https://www.netlify.com/" target="_blank">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank">github</a></p>
+      <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">gatsby</a>, <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">contentful</a>, and <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank" rel="noopener noreferrer">github</a></p>
     </FooterWidget>
     <FooterWidget>
       <p>I am always interested in collaborations. If you feel you have things to

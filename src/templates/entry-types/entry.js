@@ -1,10 +1,12 @@
-import React, { Component } from 'react'
-import Post from '../posts/post'
-import Grid from '../../layouts/grid'
+import React from 'react'
+import Grid from '../../components/grid'
 import PropTypes from 'prop-types'
+import Layout from '../../components/layout'
 
-const Entry = ({ data }) => (
-  <Grid data={data.allContentfulPost.edges} isHomePage />
+const Entry = ({ data, location }) => (
+  <Layout location={location}>
+    <Grid data={data.allContentfulPost.edges} isHomePage />
+  </Layout>
 )
 
 Entry.propTypes = {

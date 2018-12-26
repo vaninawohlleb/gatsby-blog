@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import styled, { extend } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 
 
 const Subscribe = styled.div`
@@ -42,6 +42,7 @@ export default() => {
 
     <SubscribeForm>
       <iframe 
+        title="newsletter"
         frameBorder="0" 
         scrolling="no" 
         marginHeight="0" 

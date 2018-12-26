@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import styled, { extend } from 'styled-components'
+import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import SubscribeWidget from '../components/subscribe-widget'
 
@@ -50,7 +50,7 @@ const Grid = ({ data, isHomePage, featuredId }) => {
         {isHomePage && sixPosts.map(({ node }) => (
             <Post post={node} key={node.id} />
           ))}
-        {isHomePage == false && data.map(post => (
+        {isHomePage === false && data.map(post => (
             <Post post={post} key={post.id} />
           ))}
       </GridWrapper>

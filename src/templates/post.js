@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import Img from 'gatsby-image'
-import styled, { extend } from 'styled-components'
-import Link from 'gatsby-link'
+import React from 'react'
+import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import moment from 'moment'
-// import InstagramEmbed from 'react-instagram-embed'
-let InnerHTML
+import { graphql } from 'gatsby'
 import Helmet from 'react-helmet'
 import favicon from '../assets/bunnymoji.png'
+import Layout from '../components/layout'
+// import InnerHTML from 'script-inner-html'
 
-if (typeof window !== `undefined`) {
-  InnerHTML = require('script-inner-html')
-}
+// let InnerHTML
+// if (typeof window !== `undefined`) {
+//   InnerHTML = require('script-inner-html')
+// }
 
 const SinglePost = styled.div`
   
@@ -78,31 +78,7 @@ const PostBody = styled.div`
 
   @media(min-width: 520px) {
     padding: 2rem;
-  }
-
-  &.post__PostBody-zb1l64-3,
-  &.kIxHOy {
-    max-width: 100%;
-    
-    p, h3, blockquote {
-      max-width: 1025px;
-      margin: 1.5rem auto;
-      padding: 1rem;
-    }
-
-    p, h3 {
-      @media(min-width: 1000px) {
-        padding: 0;
-      }
-    }
-
-    blockquote {
-      @media(min-width: 1000px) {
-        padding: 2rem;
-      }
-    }
-  }
-  
+  }  
 `
 const Info = styled.div`
   max-width: 1025px;
@@ -122,32 +98,34 @@ const Author = styled.a`
 const UpdatedAt = styled.span`
 
 `
-const PostPage = ({data}) => {
+const PostPage = ({data, location}) => {
   const post = data.contentfulPost
   const date = moment(`${post.updatedAt}`).format('DD MMMM')
  
-  return <SinglePost>
-      <Helmet title={post.title.title} meta={[{ name: 'description', content: post.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
-      {post.featuredImage && <ImgWrapper>
-          <img src={post.featuredImage.file.url} />
-        </ImgWrapper>}
-      <Info>
-        <H1>{post.title.title}</H1>
-        <Meta>
-          {post.author.map(author => (
-            <Author key={author.id} href={author.website}>
-              by {author.name}
-            </Author>
-          ))}
-          {post.updatedAt && <UpdatedAt>{date}</UpdatedAt>}
-        </Meta>
-      </Info>
-      {typeof window !== 'undefined' && (
-      <PostBody>
-        <InnerHTML html={ post.body.childMarkdownRemark.html } />
-      </PostBody>
-      )}
-    </SinglePost>
+  return <Layout location={location}>
+      <SinglePost>
+        <Helmet title={post.title.title} meta={[{ name: 'description', content: post.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
+        {post.featuredImage && <ImgWrapper>
+            <img src={post.featuredImage.file.url} alt={post.featuredImage.fileName} />
+          </ImgWrapper>}
+        <Info>
+          <H1>{post.title.title}</H1>
+          <Meta>
+            {post.author.map(author => (
+              <Author key={author.id} href={author.website}>
+                by {author.name}
+              </Author>
+            ))}
+            {post.updatedAt && <UpdatedAt>{date}</UpdatedAt>}
+          </Meta>
+        </Info>
+        {typeof window !== 'undefined' && (
+        <PostBody>
+          <div dangerouslySetInnerHTML={{ __html:post.body.childMarkdownRemark.html }} />
+        </PostBody>
+        )}
+      </SinglePost>
+    </Layout>
 }
 
 PostPage.propTypes = {
@@ -175,8 +153,8 @@ export const postQuery = graphql`
           url
           fileName
         }
-        resolutions(width: 1200) {
-         ...GatsbyContentfulResolutions
+        fluid(maxWidth: 1200) {
+         ...GatsbyContentfulFluid
         }
       }
       author {

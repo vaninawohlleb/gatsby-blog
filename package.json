@@ -5,23 +5,26 @@
   "author": "Vanina Tsoneva / Wohlleb <vtsoneva@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^1.9.279",
-    "gatsby-image": "^1.0.55",
-    "gatsby-link": "^1.6.46",
-    "gatsby-plugin-google-analytics": "^1.0.31",
-    "gatsby-plugin-react-helmet": "^2.0.11",
-    "gatsby-plugin-styled-components": "^2.0.8",
-    "gatsby-plugin-typography": "^1.7.19",
-    "gatsby-remark-responsive-iframe": "^1.4.20",
-    "gatsby-source-contentful": "^1.3.54",
-    "gatsby-transformer-remark": "^1.7.44",
+    "gatsby": "^2.0.76",
+    "gatsby-image": "^2.0.25",
+    "gatsby-plugin-google-analytics": "^2.0.7",
+    "gatsby-plugin-react-helmet": "^3.0.5",
+    "gatsby-plugin-styled-components": "^3.0.3",
+    "gatsby-plugin-typography": "^2.2.4",
+    "gatsby-remark-responsive-iframe": "^2.0.8",
+    "gatsby-source-contentful": "^2.0.21",
+    "gatsby-transformer-remark": "^2.1.17",
     "moment": "^2.22.2",
     "prettier": "^1.15.2",
+    "react": "^16.7.0",
     "react-burger-menu": "^2.5.4",
+    "react-dom": "^16.7.0",
     "react-helmet": "^5.2.0",
     "react-reveal": "^1.2.2",
+    "react-typography": "^0.16.13",
     "script-inner-html": "^2.0.4",
-    "styled-components": "^2.4.1"
+    "styled-components": "^4.1.1",
+    "typography": "^0.16.17"
   },
   "keywords": [
     "gatsby"
@@ -34,7 +37,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "prettier": "^1.11.1",
-    "dotenv": "^4.0.0"
+    "dotenv": "^6.2.0",
+    "prettier": "^1.11.1"
   }
 }

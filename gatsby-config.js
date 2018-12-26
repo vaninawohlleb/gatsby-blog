@@ -8,7 +8,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-transformer-remark`,
     `gatsby-image`,
-    `gatsby-link`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,

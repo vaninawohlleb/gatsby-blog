@@ -1,8 +1,8 @@
 const path = require('path')
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
-  const { createRedirect } = boundActionCreators
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  const { createRedirect } = actions
 
   return new Promise((resolve, reject) => {
     graphql(`

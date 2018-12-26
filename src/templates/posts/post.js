@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Img from 'gatsby-image'
-import styled, { extend } from 'styled-components'
-import Link from 'gatsby-link'
+import styled from 'styled-components'
+import { Link } from 'gatsby'
 import PropTypes from 'prop-types'
 
 const PostWrapper = styled.div`
@@ -51,7 +51,7 @@ const Post = ({ post }) => {
         <h4>{post.entryType}</h4>
       </Link>
     }
-    {post.featuredImage && <Img resolutions={post.featuredImage.resolutions} className={entryTypeSlug === null ? 'margin' : ''}/>}
+    {post.featuredImage && <Img fluid={post.featuredImage.fluid} className={entryTypeSlug === null ? 'margin' : ''}/>}
     <PostBody>
       <Link rel="canonical" to={post.slug}>
         <h2>{post.title.title}</h2>
