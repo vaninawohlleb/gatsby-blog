@@ -2,7 +2,6 @@ import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
 import '../assets/fa/css/fontawesome.min.css'
 import '../assets/fa/css/fa-brands.min.css'
-
 import Header from './Header'
 import Footer from './Footer'
 
