@@ -80,7 +80,6 @@ const PostBody = styled.div`
     padding: 2rem;
   }
 
-  &.ejAkAZ,
   &.kIxHOy {
     max-width: 100%;
     
@@ -88,12 +87,6 @@ const PostBody = styled.div`
       max-width: 1025px;
       margin: 1.5rem auto;
       padding: 1rem;
-    }
-
-    p, h3 {
-      @media(min-width: 1000px) {
-        padding: 0;
-      }
     }
 
     blockquote {
