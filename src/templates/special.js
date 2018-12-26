@@ -48,6 +48,7 @@ const SpecialCard = styled.div`
 
   &:first-child {
     border: 15px solid var(--blue);
+    padding: 0 0 11%;
 
     p {
       font-size: 1.1em;
@@ -60,6 +61,10 @@ const SpecialCard = styled.div`
 
     > div {
       width: 100%;
+    }
+
+    img {
+      padding-bottom: 11%;
     }
   }
 
@@ -88,6 +93,13 @@ const SpecialCard = styled.div`
       @media (min-width: 600px) {
         font-size: 1.3em;
       }
+    }
+
+    padding: 11% 0 0;
+
+    img {
+      padding-top: 11%;
+      margin-bottom: 0;
     }
   }
 
@@ -148,11 +160,16 @@ const SpecialCard = styled.div`
         a {
           span {
             position: absolute;
-            margin: 5rem 2rem;
-            font-size: 2rem;
+            margin: 1rem;
+            font-size: 1rem;
             color: #FBFF12;
             z-index: 1;
             width: 350px;
+
+            @media (min-width: 1050px) {
+              margin: 5rem 2rem;
+              font-size: 2rem;
+            }
           }
           img {
             opacity: 0.3;
@@ -195,6 +212,15 @@ const SpecialCard = styled.div`
       &:nth-child(2) {
         margin-top: 10%;
       }
+    }
+  }
+
+  &:nth-child(7) {
+    padding: 0;
+
+    > div {
+      width: 100%;
+      text-align: center;
     }
   }
 
@@ -254,6 +280,9 @@ const SpecialPage = ({data, location}) => {
               <Fade clear>
                 <div dangerouslySetInnerHTML={{ __html:special.bodyBlock7.childMarkdownRemark.html }} />
               </Fade>    
+            </SpecialCard>
+             <SpecialCard>
+              <InnerHTML html={ special.bodyBlock8.childMarkdownRemark.html } />  
             </SpecialCard>
         </SpecialBody>
       )}

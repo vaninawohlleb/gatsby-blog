@@ -14,11 +14,11 @@ const HeaderWrapper = styled.div`
   justify-content: space-between;
 
   @media (min-width: 700px) {
-    padding: ${props => (props.isSpecial ? '2em' : 'var(--big-spacing)')};
+    padding: ${props => (props.isSpecial ? '3em' : 'var(--big-spacing)')};
   }
 `
 const Branding = styled.div`
-  color: ${props => (props.isWhite ? 'white' : 'var(--grey)')};
+  color: ${props => ((props.isWhite || props.isSpecial) ? 'white' : 'var(--grey)')};
 `
 
 const Slogan = styled.div`

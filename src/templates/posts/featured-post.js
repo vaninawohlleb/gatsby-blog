@@ -54,9 +54,9 @@ const FeaturedPost = ({ post }) => {
   return <FeaturedPostWrapper img={post.node.featuredImage.file.url}>
       <PostBody>
         <Link rel="canonical" to={post.node.slug}>
-          <h1>{post.node.title.title}</h1>
+          <h1>{post.node.title.title ? post.node.title.title : post.node.title}</h1>
         </Link>
-       <Summary>{post.node.summary}</Summary>
+       <Summary>{post.node.summary ? post.node.summary : ''}</Summary>
       </PostBody>
     </FeaturedPostWrapper>
 }
