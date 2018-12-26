@@ -78,24 +78,7 @@ const PostBody = styled.div`
 
   @media(min-width: 520px) {
     padding: 2rem;
-  }
-
-  &.kIxHOy {
-    max-width: 100%;
-    
-    p, h3, blockquote {
-      max-width: 1025px;
-      margin: 1.5rem auto;
-      padding: 1rem;
-    }
-
-    blockquote {
-      @media(min-width: 1000px) {
-        padding: 2rem;
-      }
-    }
-  }
-  
+  }  
 `
 const Info = styled.div`
   max-width: 1025px;
