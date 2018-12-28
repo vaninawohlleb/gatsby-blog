@@ -3,6 +3,7 @@ require('dotenv').config()
 module.exports = {
   siteMetadata: {
     title: 'Sluttish',
+    siteUrl: `https://www.sluttish.us`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
