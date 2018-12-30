@@ -9,7 +9,6 @@ module.exports = {
     'gatsby-plugin-react-helmet',
     `gatsby-transformer-remark`,
     `gatsby-image`,
-    `gatsby-plugin-sitemap`,
     `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-typography`,
@@ -17,7 +16,12 @@ module.exports = {
         pathToConfigModule: `src/utils/typography.js`,
       },
     },
-
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        output: `/www-sitemap.xml`,
+      },
+    },
     {
       resolve: `gatsby-source-contentful`,
       options: {
