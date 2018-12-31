@@ -63,6 +63,7 @@ const Footer = ({ data }) => (
         </a>
       </Socials>
       <p>Built with love and <a href="https://www.gatsbyjs.org/" target="_blank" rel="noopener noreferrer">gatsby</a>, <a href="https://www.contentful.com/" target="_blank" rel="noopener noreferrer">contentful</a>, and <a href="https://www.netlify.com/" target="_blank" rel="noopener noreferrer">netlify</a>. Check it out on <a href="https://github.com/vaninawohlleb/gatsby-blog" target="_blank" rel="noopener noreferrer">github</a></p>
+      <p>We use google analytics on this site. To read our privacy policy go <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">here</a></p>
     </FooterWidget>
     <FooterWidget>
       <p>I am always interested in collaborations. If you feel you have things to
