@@ -21,19 +21,24 @@ const BGRWrapper = styled.div`
   }
 `
 const IndexPage = ({data, location}) => {
-  const { edges } = data.allContentfulPost
-  const featured = edges.find(({ node }) => node.featuredPost === true)
+  const posts = data.allContentfulPost.edges,
+  specials = data.allContentfulSpecial.edges,
+  allItems = posts.concat(specials),
+  allItemsSorted = allItems.sort(function(a,b) {
+    return new Date(b.node.date) - new Date(a.node.date);
+  }),
+  featured = allItemsSorted.find(({ node }) => node.featuredPost === true)
 
-    return <Layout location={location}>
-      <PostsWrapper>
-        <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
-        {/* Featured Post */}
-        {featured && <BGRWrapper>
-          <FeaturedPost post={featured} key={featured.node.id} />
-        </BGRWrapper>}
-        <Grid data={edges} featuredId={featured.node.id} isHomePage />
-      </PostsWrapper>
-    </Layout>
+  return <Layout location={location}>
+    <PostsWrapper>
+      <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
+      {/* Featured Post */}
+      {featured && <BGRWrapper>
+        <FeaturedPost post={featured} key={featured.node.id} />
+      </BGRWrapper>}
+      <Grid data={allItemsSorted} featuredId={featured.node.id} isHomePage />
+    </PostsWrapper>
+  </Layout>
   }
 
 IndexPage.propTypes = {
@@ -51,7 +56,7 @@ export const contentQuery = graphql`
         node {
           id
           slug
-
+          date
           title {
             title
           }
@@ -67,11 +72,28 @@ export const contentQuery = graphql`
             ...GatsbyContentfulFluid
             }
           }
+        }
+      }
+    }
 
-          author {
-            id
-            name
-            website
+    allContentfulSpecial(
+      sort: { fields: [date], order: DESC }
+    ) {
+      edges {
+        node {
+          id
+          slug
+          title
+          date
+          featuredPost
+          featuredImage {
+            file {
+              url
+              fileName
+            }
+            fluid(maxHeight: 650) {
+              ...GatsbyContentfulFluid
+            }
           }
         }
       }
