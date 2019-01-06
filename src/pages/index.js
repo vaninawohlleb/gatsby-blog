@@ -31,7 +31,7 @@ const IndexPage = ({data, location}) => {
 
   return <Layout location={location}>
     <PostsWrapper>
-      <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
+      <Helmet title="Sluttish - exploring female sexuality" meta={[{ name: 'description', content: 'Sluttish aims to explore female sexuality and fight slut shaming by creating and curating adult sex ed, feminist and alternative porn, practical sex tips, and everything that turns us on and needs exploring' }, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }, { name: 'og:image', content: 'https://images.ctfassets.net/268aledh5q1o/I8nVGEqg4oG26oQu0ySGo/6c71ff3700dae3cf3eb709665010d6b3/vaniva.jpg' }, { name: 'twitter:image', content: 'https://images.ctfassets.net/268aledh5q1o/I8nVGEqg4oG26oQu0ySGo/6c71ff3700dae3cf3eb709665010d6b3/vaniva.jpg' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/> 
       {/* Featured Post */}
       {featured && <BGRWrapper>
         <FeaturedPost post={featured} key={featured.node.id} />
