@@ -10,6 +10,7 @@ module.exports = {
     `gatsby-transformer-remark`,
     `gatsby-image`,
     `gatsby-plugin-styled-components`,
+    `gatsby-plugin-netlify`,
     {
       resolve: `gatsby-plugin-typography`,
       options: {

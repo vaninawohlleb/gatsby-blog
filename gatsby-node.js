@@ -4,6 +4,14 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
   const { createRedirect } = actions
 
+  createRedirect({
+    fromPath: `/wtf-is-amsr/`,
+    redirectInBrowser: true,
+    isPermanent: true,
+    toPath : `/wtf-is-asmr/`,
+    force: true
+  })
+
   return new Promise((resolve, reject) => {
     graphql(`
       {
