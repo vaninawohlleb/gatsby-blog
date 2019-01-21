@@ -8,7 +8,7 @@ exports.createPages = ({ graphql, actions }) => {
     fromPath: `/wtf-is-amsr/`,
     redirectInBrowser: true,
     isPermanent: true,
-    toPath : `/wtf-is-asmr/`,
+    toPath: `/wtf-is-asmr/`,
     force: true
   })
 
