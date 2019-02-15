@@ -71,11 +71,6 @@ class BurgerMenu extends React.Component {
           ))}
 
           {/* Custom Links*/}
-          <Link rel="canonical" key="all" to="all">
-            <MenuItem onClick={() => this.closeMenu()}>
-              <h3>All articles</h3>
-            </MenuItem>
-          </Link>
           <Link rel="canonical" key="who" to="whos-who">
             <MenuItem onClick={() => this.closeMenu()}>
               <h3>who's who</h3>
@@ -84,6 +79,11 @@ class BurgerMenu extends React.Component {
           <Link rel="canonical" key="what-is" to="what-is">
             <MenuItem onClick={() => this.closeMenu()}>
               <h3>what is</h3>
+            </MenuItem>
+          </Link>
+          <Link rel="canonical" key="all" to="all">
+            <MenuItem onClick={() => this.closeMenu()}>
+              <h3>All articles</h3>
             </MenuItem>
           </Link>
           {/* <Link key='how' to='how-tos'>
