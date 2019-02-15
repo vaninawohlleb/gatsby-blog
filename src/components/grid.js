@@ -33,31 +33,37 @@ const FullWidth = styled.div`
   }
 `
 
-const Grid = ({ data, isHomePage, featuredId }) => {
+const Grid = ({ data, isHomePage, featuredId, all }) => {
   const sixPosts = isHomePage ? data
     .filter(({ node }) => node.id !== featuredId)
     .slice(0, 6)
-    : null
+    : null;
     
   const threePosts = isHomePage ? data
     .filter(({ node }) => node.id !== featuredId)
     .slice(6, 12)
-    : null
+    : null;
 
- 
+  const allPosts = all ? data.filter(({ node }) => node.id !== '3f9f779d-499c-56a5-b5b3-8ae0074c18e2') : null;
+
   return <div>
       <GridWrapper>
-        {isHomePage && sixPosts.map(({ node }) => (
+        {isHomePage && !allPosts &&
+          sixPosts.map(({ node }) => (
             <Post post={node} key={node.id} />
           ))}
+        {isHomePage && allPosts &&
+          allPosts.map(({ node }) => (
+            <Post post={node} key={node.id} />
+        ))}
         {isHomePage === false && data.map(post => (
-            <Post post={post} key={post.id} />
+          <Post post={post} key={post.id} />
           ))}
       </GridWrapper>
-      {isHomePage && <FullWidth>
+      {isHomePage && !allPosts && <FullWidth>
           <SubscribeWidget />
         </FullWidth>}
-      {isHomePage && (data.length > 6) && <GridWrapper>
+      {isHomePage && (data.length > 6) && !allPosts && <GridWrapper>
           {threePosts.map(({ node }) => <Post post={node} key={node.id} />)}
         </GridWrapper>}
     </div>

@@ -50,7 +50,11 @@ export default IndexPage
 export const contentQuery = graphql`
   query contentQuery {
     allContentfulPost(
-      sort: { fields: [date], order: DESC }
+      limit: 13,
+      sort: {
+        fields: [date],
+        order: DESC
+      }
     ) {
       edges {
         node {
