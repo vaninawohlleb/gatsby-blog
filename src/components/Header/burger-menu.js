@@ -61,46 +61,51 @@ class BurgerMenu extends React.Component {
 
     return <MenuWrapper isWhite={this.props.isWhite}>
         {typeof window !== 'undefined' && window.location.href && <Menu right width={'300px'} isOpen={this.state.menuOpen} noOverlay onStateChange={state => this.handleStatechange(state)} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
-              {/* Categories */}
-              {categoriesWithoutFeatured.map(category => (
-                <Link rel="canonical" key={category.node.id} to={category.node.slug}>
-                  <MenuItem onClick={() => this.closeMenu()}>
-                    <h3>{category.node.title}</h3>
-                  </MenuItem>
-                </Link>
-              ))}
+          {/* Categories */}
+          {categoriesWithoutFeatured.map(category => (
+            <Link rel="canonical" key={category.node.id} to={category.node.slug}>
+              <MenuItem onClick={() => this.closeMenu()}>
+                <h3>{category.node.title}</h3>
+              </MenuItem>
+            </Link>
+          ))}
 
-              {/* Custom Links*/}
-              <Link rel="canonical" key="who" to="whos-who">
-                <MenuItem onClick={() => this.closeMenu()}>
-                  <h3>who's who</h3>
-                </MenuItem>
-              </Link>
-              <Link rel="canonical" key="what-is" to="what-is">
-                <MenuItem onClick={() => this.closeMenu()}>
-                  <h3>what is</h3>
-                </MenuItem>
-              </Link>
-              {/* <Link key='how' to='how-tos'>
-                  <MenuItem>
-                    <h3>how to's</h3>
-                  </MenuItem>
-                </Link> */}
-              {/* <Link key="events" to="events">
-                <MenuItem onClick={() => this.closeMenu()}>
-                  <h3>events</h3>
-                </MenuItem>
-              </Link> */}
+          {/* Custom Links*/}
+          <Link rel="canonical" key="who" to="whos-who">
+            <MenuItem onClick={() => this.closeMenu()}>
+              <h3>who's who</h3>
+            </MenuItem>
+          </Link>
+          <Link rel="canonical" key="what-is" to="what-is">
+            <MenuItem onClick={() => this.closeMenu()}>
+              <h3>what is</h3>
+            </MenuItem>
+          </Link>
+          <Link rel="canonical" key="all" to="all">
+            <MenuItem onClick={() => this.closeMenu()}>
+              <h3>All articles</h3>
+            </MenuItem>
+          </Link>
+          {/* <Link key='how' to='how-tos'>
+              <MenuItem>
+                <h3>how to's</h3>
+              </MenuItem>
+            </Link> */}
+          {/* <Link key="events" to="events">
+            <MenuItem onClick={() => this.closeMenu()}>
+              <h3>events</h3>
+            </MenuItem>
+          </Link> */}
 
-              {/* Pages */}
-              {pages.map(page => (
-                <Link rel="canonical" key={page.node.id} to={page.node.slug}>
-                  <MenuItem onClick={() => this.closeMenu()}>
-                    <h3>{page.node.title}</h3>
-                  </MenuItem>
-                </Link>
-              ))}
-            </Menu>}
+          {/* Pages */}
+          {pages.map(page => (
+            <Link rel="canonical" key={page.node.id} to={page.node.slug}>
+              <MenuItem onClick={() => this.closeMenu()}>
+                <h3>{page.node.title}</h3>
+              </MenuItem>
+            </Link>
+          ))}
+        </Menu>}
       </MenuWrapper>
   }
 }

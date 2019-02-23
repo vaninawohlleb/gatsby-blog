@@ -322,11 +322,6 @@ export const postQuery = graphql`
           html
         }
       }
-      bodyBlock5 {
-        childMarkdownRemark {
-          html
-        }
-      }
       bodyBlock6 {
         childMarkdownRemark {
           html
