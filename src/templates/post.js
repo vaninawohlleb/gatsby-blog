@@ -80,6 +80,44 @@ const PostBody = styled.div`
     padding: 2rem;
   }  
 `
+
+const PhotoPostBody = styled(PostBody) `
+  max-width: 100%;
+  padding: 0;
+
+  p, 
+  blockquote {
+    max-width: 870px;
+    
+  }
+
+  p {
+    padding: .5rem 1rem;
+    margin: 1rem auto;
+  }
+
+  blockquote {
+    padding: 2rem;
+    margin: 2rem auto;
+  }
+
+  img {
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  em {
+    color: #1e2ad2;
+  }
+
+  hr {
+    background: #1e2ad2;
+    padding: .2rem 0rem;
+    margin: 2rem auto;
+    max-width: 840px;
+  }
+`
+
 const Info = styled.div`
   max-width: 1025px;
   margin: 0 auto;
@@ -99,8 +137,8 @@ const UpdatedAt = styled.span`
 
 `
 const PostPage = ({data, location}) => {
-  const post = data.contentfulPost
-  const date = moment(`${post.updatedAt}`).format('DD MMMM')
+  const post = data.contentfulPost,
+    date = moment(`${post.updatedAt}`).format('DD MMMM');
  
   return <Layout location={location}>
       <SinglePost>
@@ -119,10 +157,20 @@ const PostPage = ({data, location}) => {
             {post.updatedAt && <UpdatedAt>{date}</UpdatedAt>}
           </Meta>
         </Info>
-        {typeof window !== 'undefined' && (
+        {typeof window !== 'undefined' && !post.photoPost && (
         <PostBody>
           <div dangerouslySetInnerHTML={{ __html:post.body.childMarkdownRemark.html }} />
         </PostBody>
+        )}
+        {typeof window !== 'undefined' && !post.photoPost && (
+        <PostBody>
+          <div dangerouslySetInnerHTML={{ __html:post.body.childMarkdownRemark.html }} />
+        </PostBody>
+        )}
+        {typeof window !== 'undefined' && post.photoPost && (
+        <PhotoPostBody>
+          <div dangerouslySetInnerHTML={{ __html:post.body.childMarkdownRemark.html }} />
+        </PhotoPostBody>
         )}
       </SinglePost>
     </Layout>
@@ -139,6 +187,7 @@ export const postQuery = graphql`
   query postQuery($slug: String!){
     contentfulPost(slug: { eq: $slug }) {
       id
+      photoPost
       title {
         title
       }
