@@ -7,6 +7,7 @@ import FeaturedPost from '../templates/posts/featured-post'
 import Grid from '../components/grid'
 import favicon from '../assets/bunnymoji.png'
 import { graphql } from 'gatsby'
+import CookieConsent from "react-cookie-consent"
 
 const PostsWrapper = styled.div`
 
@@ -38,6 +39,9 @@ const IndexPage = ({data, location}) => {
       </BGRWrapper>}
       <Grid data={allItemsSorted} featuredId={featured.node.id} isHomePage />
     </PostsWrapper>
+    <CookieConsent buttonStyle={{ color: "#fff", background: "transparent", border: "1px solid #fff" }}>
+      This website uses cookies to enhance the user experience via analytics.
+    </CookieConsent>
   </Layout>
   }
 
