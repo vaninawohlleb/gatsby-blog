@@ -12,6 +12,7 @@ exports.createPages = ({ graphql, actions }) => {
             node {
               slug
               entryType
+              tags
             }
           }
         }
@@ -45,7 +46,22 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
 
-      // Contentful Categories
+      // Contenful Tags (such as bondage, bdsm etc)
+      result.data.allContentfulPost.edges.map(({ node }) => {
+        if (node.tags) {
+          node.tags.map(tag => {
+            createPage({
+              path: `/${tag}`,
+              component: path.resolve('src/templates/tag.js'),
+              context: {
+                slug: tag
+              },
+            })
+          })
+        }
+      })
+
+      // Contentful Categories (such as guides, features etc)
       result.data.allContentfulCategory.edges.map(({ node }) => {
         createPage({
           path: `/${node.slug}`,

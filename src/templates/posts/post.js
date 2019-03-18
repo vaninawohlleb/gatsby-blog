@@ -53,7 +53,7 @@ const Post = ({ post }) => {
     }
     {post.featuredImage && <Img fluid={post.featuredImage.fluid} className={entryTypeSlug === null ? 'margin' : ''}/>}
     <PostBody>
-      <Link rel="canonical" to={post.slug}>
+      <Link to={post.slug}>
         <h2>{post.title.title ? post.title.title : post.title}</h2>
       </Link>
       {post.summary}

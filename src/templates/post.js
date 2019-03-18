@@ -139,10 +139,12 @@ const UpdatedAt = styled.span`
 const PostPage = ({data, location}) => {
   const post = data.contentfulPost,
     date = moment(`${post.updatedAt}`).format('DD MMMM');
+  
+  // console.log(post.tags[0])
  
   return <Layout location={location}>
       <SinglePost>
-        <Helmet title={post.seoTitle ? post.seoTitle : post.title.title} meta={[{ name: 'description', content: post.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
+        <Helmet title={post.seoTitle ? `${post.seoTitle} | Sluttish` : post.title.title} meta={[{ name: 'description', content: post.summary}, { name: 'keywords', content: 'sluttish, feminist porn, ethical porn, female orgasm, masturbation, female pleasure, erotic photography, bdsm, shibari, sex, female friendly, anti-slut shaming, feminist, bondage, feminist submissive' }]} link={[ {rel: 'shortcut icon', type: 'image/png', href: `${favicon}`} ]}/>
         {post.featuredImage && <ImgWrapper>
             <img src={post.featuredImage.file.url} alt={post.featuredImage.fileName} />
           </ImgWrapper>}
@@ -189,6 +191,7 @@ export const postQuery = graphql`
       id
       photoPost
       seoTitle
+      tags
       title {
         title
       }

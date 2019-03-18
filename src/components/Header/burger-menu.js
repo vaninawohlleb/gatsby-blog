@@ -30,7 +30,11 @@ const MenuItem = styled.span`
   color: white;
   cursor: pointer;
 `;
-
+const AccentLink = styled(Link)`
+  border-top: 2px solid #fff;
+  margin-top: 1rem;
+  padding: 1rem 0 0;
+`
 class BurgerMenu extends React.Component {
   static propTypes = {
     data: PropTypes.object,
@@ -63,7 +67,7 @@ class BurgerMenu extends React.Component {
         {typeof window !== 'undefined' && window.location.href && <Menu right width={'300px'} isOpen={this.state.menuOpen} noOverlay onStateChange={state => this.handleStatechange(state)} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
           {/* Categories */}
           {categoriesWithoutFeatured.map(category => (
-            <Link rel="canonical" key={category.node.id} to={category.node.slug}>
+            <Link rel="canonical" key={category.node.id} to={`/${category.node.slug}`}>
               <MenuItem onClick={() => this.closeMenu()}>
                 <h3>{category.node.title}</h3>
               </MenuItem>
@@ -71,21 +75,21 @@ class BurgerMenu extends React.Component {
           ))}
 
           {/* Custom Links*/}
-          <Link rel="canonical" key="who" to="whos-who">
+          <Link rel="canonical" key="who" to="/whos-who">
             <MenuItem onClick={() => this.closeMenu()}>
               <h3>who's who</h3>
             </MenuItem>
           </Link>
-          <Link rel="canonical" key="what-is" to="what-is">
+          <Link rel="canonical" key="what-is" to="/what-is">
             <MenuItem onClick={() => this.closeMenu()}>
               <h3>what is</h3>
             </MenuItem>
           </Link>
-          <Link rel="canonical" key="all" to="all">
+          <AccentLink rel="canonical" key="all" to="/all">
             <MenuItem onClick={() => this.closeMenu()}>
               <h3>All articles</h3>
             </MenuItem>
-          </Link>
+          </AccentLink>
           {/* <Link key='how' to='how-tos'>
               <MenuItem>
                 <h3>how to's</h3>
@@ -99,7 +103,7 @@ class BurgerMenu extends React.Component {
 
           {/* Pages */}
           {pages.map(page => (
-            <Link rel="canonical" key={page.node.id} to={page.node.slug}>
+            <Link rel="canonical" key={page.node.id} to={`/${page.node.slug}`}>
               <MenuItem onClick={() => this.closeMenu()}>
                 <h3>{page.node.title}</h3>
               </MenuItem>
