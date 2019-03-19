@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
-// import Grid from '../components/grid'
+import Grid from '../components/grid'
 
 const H1BoldStyled = styled.h1`
   text-align: center;
@@ -12,13 +12,13 @@ const H1BoldStyled = styled.h1`
 const Tag = styled.div`
 
 `
-
 const TagPage = ({data, location}) => {
-  // const category = data.contentfulCategory
-  console.log(data)
+  const tag = location.pathname.replace(/([^a-z0-9-]+)/gi, '');
+
   return <Layout location={location}>
     <Tag>
-      <H1BoldStyled>LALALLALA</H1BoldStyled>
+      <H1BoldStyled>{tag.replace(/-/g, ' ')}</H1BoldStyled>
+      <Grid data={data.allContentfulPost.edges} isHomePage />
     </Tag>
   </Layout>
 }
@@ -31,16 +31,22 @@ export default TagPage;
 
 // Query Contentful for content type Category
 export const TagQuery = graphql`
-  query TagQuery($slug: String!) {
-    allContentfulPost(filter: { tags: { in: [$slug] }}) {
+  query TagQuery($tag: String!) {
+    allContentfulPost(filter: { tags: { in: [$tag] }}) {
       edges {
         node {
           id
           date
           tags
           summary
+          slug
           title {
             title
+          }
+          featuredImage {
+            fluid(maxHeight: 650) {
+              ...GatsbyContentfulFluid
+            }
           }
         }
       }

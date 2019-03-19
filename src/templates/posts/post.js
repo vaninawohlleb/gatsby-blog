@@ -37,21 +37,18 @@ const PostBody = styled.div`
   // }
 `
 const Post = ({ post }) => {
-  const cleanEntryType = post.entryType ? 
-    post.entryType.replace(/[^A-Z0-9 ]+/gi, '') :
+  const primaryTag = post.tags ? 
+    post.tags[0].replace(/-/g, ' '):
     null
 
-  const entryTypeSlug = cleanEntryType ?
-    cleanEntryType.replace(' ', '-') :
-    null
-
+  console.log(primaryTag)
   return <PostWrapper>
-    {entryTypeSlug &&
-      <Link to={entryTypeSlug}>
-        <h4>{post.entryType}</h4>
+    {primaryTag &&
+      <Link to={primaryTag.replace(' ', '-')}>
+        <h4>{primaryTag}</h4>
       </Link>
     }
-    {post.featuredImage && <Img fluid={post.featuredImage.fluid} className={entryTypeSlug === null ? 'margin' : ''}/>}
+    {post.featuredImage && <Img fluid={post.featuredImage.fluid} className={primaryTag === null ? 'margin' : ''}/>}
     <PostBody>
       <Link to={post.slug}>
         <h2>{post.title.title ? post.title.title : post.title}</h2>

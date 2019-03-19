@@ -50,11 +50,13 @@ exports.createPages = ({ graphql, actions }) => {
       result.data.allContentfulPost.edges.map(({ node }) => {
         if (node.tags) {
           node.tags.map(tag => {
+            const cleanTag = tag.replace(/\s+/g, '-').toLowerCase();
             createPage({
-              path: `/${tag}`,
+              path: `/${cleanTag}`,
               component: path.resolve('src/templates/tag.js'),
               context: {
-                slug: tag
+                slug: cleanTag,
+                tag: tag
               },
             })
           })
