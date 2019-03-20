@@ -162,11 +162,6 @@ const PostPage = ({data, location}) => {
           <div dangerouslySetInnerHTML={{ __html:post.body.childMarkdownRemark.html }} />
         </PostBody>
         )}
-        {typeof window !== 'undefined' && !post.photoPost && (
-        <PostBody>
-          <div dangerouslySetInnerHTML={{ __html:post.body.childMarkdownRemark.html }} />
-        </PostBody>
-        )}
         {typeof window !== 'undefined' && post.photoPost && (
         <PhotoPostBody>
           <div dangerouslySetInnerHTML={{ __html:post.body.childMarkdownRemark.html }} />
