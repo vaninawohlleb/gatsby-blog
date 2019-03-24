@@ -31,7 +31,14 @@ export default TagPage;
 // Query Contentful for content type Category
 export const TagQuery = graphql`
   query TagQuery($tag: String!) {
-    allContentfulPost(filter: { tags: { in: [$tag] }}) {
+    allContentfulPost(filter: {
+        tags: {
+          in: [$tag]
+        }
+      }, sort: {
+        fields: [date],
+        order: DESC
+      }) {
       edges {
         node {
           id
