@@ -70,7 +70,7 @@ export const contentQuery = graphql`
           }
           featuredPost
           summary
-          entryType
+          tags
           featuredImage{
             file {
               url

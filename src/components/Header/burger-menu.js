@@ -30,7 +30,16 @@ const MenuItem = styled.span`
   color: white;
   cursor: pointer;
 `;
+const AccentLink = styled(Link)`
+  border-top: 2px solid #fff;
+  margin-top: 1rem;
+  padding: 1rem 0 0;
+`
 
+const Tags = styled.div`
+  border-bottom: 2px solid #fff;
+  margin-bottom: 1.5rem;
+`
 class BurgerMenu extends React.Component {
   static propTypes = {
     data: PropTypes.object,
@@ -55,51 +64,48 @@ class BurgerMenu extends React.Component {
   }
 
   render() {
-    const categories = this.props.data.allContentfulCategory.edges
-    const pages = this.props.data.allContentfulPage.edges
-    const categoriesWithoutFeatured = categories.filter(({node}) => node.id !== '45c8015a-dc2e-5a1c-a40b-3f7442606aca');
+    const categories = this.props.data.allContentfulCategory.edges,
+      pages = this.props.data.allContentfulPage.edges,
+      categoriesWithoutFeatured = categories.filter(({node}) => node.id !== '45c8015a-dc2e-5a1c-a40b-3f7442606aca'),
+      tagsArray = ['sex-ed', 'self-love', 'dating', 'porn', 'bdsm', 'yas-kween', 'slut']
 
     return <MenuWrapper isWhite={this.props.isWhite}>
         {typeof window !== 'undefined' && window.location.href && <Menu right width={'300px'} isOpen={this.state.menuOpen} noOverlay onStateChange={state => this.handleStatechange(state)} pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
+
+          {/* Tags */}
+          <Tags>
+            {tagsArray.map(tag => (
+              <Link rel="canonical" key={tag} to={tag}>
+                <MenuItem onClick={() => this.closeMenu()}>
+                  <h3>{tag.replace(/-/g, ' ')}</h3>
+                </MenuItem>
+              </Link>
+            ))}
+          </Tags>
+
           {/* Categories */}
           {categoriesWithoutFeatured.map(category => (
-            <Link rel="canonical" key={category.node.id} to={category.node.slug}>
+            <Link rel="canonical" key={category.node.id} to={`/${category.node.slug}`}>
               <MenuItem onClick={() => this.closeMenu()}>
                 <h3>{category.node.title}</h3>
               </MenuItem>
             </Link>
           ))}
-
-          {/* Custom Links*/}
-          <Link rel="canonical" key="who" to="whos-who">
-            <MenuItem onClick={() => this.closeMenu()}>
-              <h3>who's who</h3>
-            </MenuItem>
-          </Link>
-          <Link rel="canonical" key="what-is" to="what-is">
-            <MenuItem onClick={() => this.closeMenu()}>
-              <h3>what is</h3>
-            </MenuItem>
-          </Link>
-          <Link rel="canonical" key="all" to="all">
+          
+          <AccentLink rel="canonical" key="all" to="/all">
             <MenuItem onClick={() => this.closeMenu()}>
               <h3>All articles</h3>
             </MenuItem>
-          </Link>
-          {/* <Link key='how' to='how-tos'>
-              <MenuItem>
-                <h3>how to's</h3>
-              </MenuItem>
-            </Link> */}
-          {/* <Link key="events" to="events">
-            <MenuItem onClick={() => this.closeMenu()}>
-              <h3>events</h3>
-            </MenuItem>
-          </Link> */}
+          </AccentLink>
 
+          <Link rel="canonical" key='about' to='/about'>
+            <MenuItem onClick={() => this.closeMenu()}>
+              <h3>About</h3>
+            </MenuItem>
+          </Link>
           {/* Pages */}
           {pages.map(page => (
-            <Link rel="canonical" key={page.node.id} to={page.node.slug}>
+            <Link rel="canonical" key={page.node.id} to={`/${page.node.slug}`}>
               <MenuItem onClick={() => this.closeMenu()}>
                 <h3>{page.node.title}</h3>
               </MenuItem>
