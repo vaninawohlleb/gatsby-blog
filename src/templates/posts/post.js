@@ -41,7 +41,6 @@ const Post = ({ post }) => {
     post.tags[0].replace(/-/g, ' '):
     null
 
-  console.log(primaryTag)
   return <PostWrapper>
     {primaryTag &&
       <Link to={primaryTag.replace(' ', '-')}>

@@ -12,7 +12,7 @@ export default ({
   <StaticQuery
     query={graphql`
       query NavigationQuery {
-        allContentfulCategory(limit: 7) {
+        allContentfulCategory(limit: 2) {
           edges {
             node {
               id
@@ -22,7 +22,7 @@ export default ({
           }
         }
 
-        allContentfulPage(limit: 2) {
+        allContentfulPage(limit: 1) {
           edges {
             node {
               id
