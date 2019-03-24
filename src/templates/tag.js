@@ -8,7 +8,6 @@ import Grid from '../components/grid'
 const H1BoldStyled = styled.h1`
   text-align: center;
 `
-
 const Tag = styled.div`
 
 `
