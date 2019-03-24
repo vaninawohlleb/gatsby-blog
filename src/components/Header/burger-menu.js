@@ -38,7 +38,7 @@ const AccentLink = styled(Link)`
 
 const Tags = styled.div`
   border-bottom: 2px solid #fff;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 `
 class BurgerMenu extends React.Component {
   static propTypes = {
