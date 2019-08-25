@@ -97,6 +97,13 @@ class BurgerMenu extends React.Component {
               <h3>All articles</h3>
             </MenuItem>
           </AccentLink>
+
+          <Link rel="canonical" key='about' to='/about'>	
+            <MenuItem onClick={() => this.closeMenu()}>	
+              <h3>About</h3>	
+            </MenuItem>	
+          </Link>
+          
         </Menu>}
       </MenuWrapper>
   }
