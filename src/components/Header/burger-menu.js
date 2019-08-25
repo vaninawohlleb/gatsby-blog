@@ -98,19 +98,12 @@ class BurgerMenu extends React.Component {
             </MenuItem>
           </AccentLink>
 
-          <Link rel="canonical" key='about' to='/about'>
-            <MenuItem onClick={() => this.closeMenu()}>
-              <h3>About</h3>
-            </MenuItem>
+          <Link rel="canonical" key='about' to='/about'>	
+            <MenuItem onClick={() => this.closeMenu()}>	
+              <h3>About</h3>	
+            </MenuItem>	
           </Link>
-          {/* Pages */}
-          {pages.map(page => (
-            <Link rel="canonical" key={page.node.id} to={`/${page.node.slug}`}>
-              <MenuItem onClick={() => this.closeMenu()}>
-                <h3>{page.node.title}</h3>
-              </MenuItem>
-            </Link>
-          ))}
+          
         </Menu>}
       </MenuWrapper>
   }
