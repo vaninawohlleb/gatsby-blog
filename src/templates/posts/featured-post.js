@@ -50,13 +50,24 @@ const Summary = styled.div`
     display: block;
   }
 `
+
+const StyledLink = styled(Link)`
+  padding: 1em;
+  background: #000;
+  opacity: .7;
+`
+const StyledSummary = styled(Summary)`
+  padding: 0 1em 1em;
+  background: #000;
+  opacity: .7;
+`
 const FeaturedPost = ({ post }) => {
   return <FeaturedPostWrapper img={post.node.featuredImage.file.url}>
       <PostBody>
-        <Link rel="canonical" to={post.node.slug}>
+        <StyledLink rel="canonical" to={post.node.slug}>
           <h1>{post.node.title.title ? post.node.title.title : post.node.title}</h1>
-        </Link>
-       <Summary>{post.node.summary ? post.node.summary : ''}</Summary>
+        </StyledLink>
+       <StyledSummary>{post.node.summary ? post.node.summary : ''}</StyledSummary>
       </PostBody>
     </FeaturedPostWrapper>
 }
