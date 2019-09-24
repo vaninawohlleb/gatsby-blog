@@ -47,13 +47,13 @@ const Post = ({ post }) => {
         <h4>{primaryTag}</h4>
       </Link>
     }
-    {post.featuredImage && <Img fluid={post.featuredImage.fluid} className={primaryTag === null ? 'margin' : ''}/>}
-    <PostBody>
-      <Link rel="canonical" to={post.slug}>
-        <h2>{post.title.title ? post.title.title : post.title}</h2>
-      </Link>
-      {post.summary}
-    </PostBody>
+    <Link rel="canonical" to={post.slug}>
+      {post.featuredImage && <Img fluid={post.featuredImage.fluid} className={primaryTag === null ? 'margin' : ''}/>}
+      <PostBody>
+          <h2>{post.title.title ? post.title.title : post.title}</h2>
+        {post.summary}
+      </PostBody>
+    </Link>
   </PostWrapper>
 }
 
