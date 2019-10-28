@@ -74,22 +74,6 @@ exports.createPages = ({ graphql, actions }) => {
         })
       })
 
-      // Contenful Entry Types
-      result.data.allContentfulPost.edges.map(({ node }) => {
-        const cleanSlug = (node.entryType !== null) && node.entryType.replace(/[^a-zA-Z0-9-. ]/g, '')
-        const entryTypeSlug = cleanSlug && cleanSlug.replace(/[^A-Z0-9]+/gi, '-')
-
-        if (entryTypeSlug && entryTypeSlug !== null) {
-          createPage({
-            path: `${entryTypeSlug}`,
-            component: path.resolve(`src/templates/${entryTypeSlug}.js`),
-            context: {
-              entryType: node.entryType,
-            },
-          })
-        }
-      })
-
       // Contenful Specials
       result.data.allContentfulSpecial.edges.map(({ node }) => {
         createPage({
