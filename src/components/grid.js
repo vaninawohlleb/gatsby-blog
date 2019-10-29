@@ -44,26 +44,24 @@ const Grid = ({ data, isHomePage, featuredId, all }) => {
     .slice(6, 12)
     : null;
 
-  const allPosts = all ? data.filter(({ node }) => node.id !== '3f9f779d-499c-56a5-b5b3-8ae0074c18e2') : null;
-
   return <div>
       <GridWrapper>
-        {isHomePage && !allPosts &&
+        {isHomePage && !all &&
           sixPosts.map(({ node }) => (
             <Post post={node} key={node.id} />
           ))}
-        {isHomePage && allPosts &&
-          allPosts.map(({ node }) => (
+        {all &&
+          data.map(({ node }) => (
             <Post post={node} key={node.id} />
         ))}
-        {isHomePage === false && data.map(post => (
+        {!isHomePage && data.map(post => (
           <Post post={post} key={post.id} />
           ))}
       </GridWrapper>
-      {isHomePage && !allPosts && <FullWidth>
+      {isHomePage && !all && data.length > 6 && <FullWidth>
           <SubscribeWidget />
         </FullWidth>}
-      {isHomePage && (data.length > 6) && !allPosts && <GridWrapper>
+      {isHomePage && (data.length > 6) && !all && <GridWrapper>
           {threePosts.map(({ node }) => <Post post={node} key={node.id} />)}
         </GridWrapper>}
     </div>
@@ -72,7 +70,7 @@ const Grid = ({ data, isHomePage, featuredId, all }) => {
 Grid.propTypes = {
   data: PropTypes.array,
   isHomePage: PropTypes.bool,
-  lcoation: PropTypes.object
+  location: PropTypes.object
 }
 
 export default Grid;
