@@ -5,7 +5,7 @@
   "author": "Vanina Tsoneva / Wohlleb <vtsoneva@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.8.0",
-    "gatsby": "^2.0.76",
+    "gatsby": "^5.3.3",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-google-analytics": "^2.0.7",
     "gatsby-plugin-react-helmet": "^3.0.5",
