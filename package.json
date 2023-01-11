@@ -15,7 +15,7 @@
     "gatsby-remark-responsive-iframe": "^2.0.8",
     "gatsby-source-contentful": "^2.0.21",
     "gatsby-source-filesystem": "^2.0.27",
-    "gatsby-transformer-remark": "^2.1.17",
+    "gatsby-transformer-remark": "^5.25.1",
     "moment": "^2.22.2",
     "prettier": "^1.15.2",
     "react": "^16.7.0",
